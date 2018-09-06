@@ -1,0 +1,213 @@
+# Copyright (C) 2017 Event Listing
+# This file is distributed under the same license as the Event Listing package.
+msgid ""
+msgstr ""
+"Project-Id-Version:Event Listing 1.0.0\n"
+"Report-Msgid-Bugs-To: http://marketplace.gamthemes.com/themes/wordpress/event-listing\n"
+"POT-Creation-Date: 2016-02-27 16:24:46+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: 404.php:16
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: auther.php:30
+msgid "All posts by %s"
+msgstr ""
+
+#: header.php:56
+msgid "Toggle navigation"
+msgstr ""
+
+#: category.php:17
+msgid "Category Archives: %s"
+msgstr ""
+
+#: category.php:22
+msgid "<div class="taxonomy-description">%s</div>"
+msgstr ""
+
+#: comments.php:24
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:30
+#: comments.php:47
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:31
+#: comments.php:48
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:32
+#: comments.php:49
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:32
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:54
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:69
+msgid "Comments are closed."
+msgstr ""
+
+#: image.php:28
+msgid "Edit"
+msgstr ""
+
+#: image.php:45
+#: page.php:32
+msgid "Pages:"
+msgstr ""
+
+#: image.php:55
+msgid "Previous Image"
+msgstr ""
+
+#: image.php:56
+msgid "Next Image"
+msgstr ""
+
+#: index.php:22
+msgid "Read more"
+msgstr ""
+
+#: index.php:27
+msgid "Back"
+msgstr ""
+
+#: index.php:28
+msgid "Onward"
+msgstr ""
+
+#: page.php:36
+#: search.php:34
+msgid "Page"
+msgstr ""
+
+#: page.php:15
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:32
+msgid "Previous page"
+msgstr ""
+
+#: search.php:33
+msgid "Next page"
+msgstr ""
+
+#: search.php:41
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php:48
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr ""
+
+#: content-single-event_listing.php:5
+msgid "This listing has expired."
+msgstr ""
+
+#: content-single-event_listing.php:21
+msgid "Event Overview"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:26
+msgid "Updated %s ago"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:28
+msgid "This event has been cancelled"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:30
+msgid "Registrations have closed"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:67
+msgid "About"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:83
+msgid "View More Details"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:91
+#: content-single-event_listing-organizer.php:99
+msgid "Watch Video"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:113
+msgid "When & Where"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:124
+msgid "Online Event"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:138
+msgid "Registration End Date"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:179
+msgid "Website"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:184
+msgid "Facebook"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:190
+msgid "Twitter"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:202
+msgid "Linkedin"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:208
+msgid "Pinterest"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:214
+msgid "Instagram"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:220
+msgid "Youtube"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:226
+msgid "Google"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:116
+msgid "From:"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:119
+msgid "To:"
+msgstr ""
+
+#: content-single-event_listing-organizer.php:122
+msgid "Location:"
+msgstr ""
+
+
+
+

@@ -1,0 +1,28 @@
+/*
+Theme Name: Event Listing
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+It's easy, just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+See: https://codex.wordpress.org/Right_to_Left_Language_Support
+*/
+.post-navigation .has-post-thumbnail a:before {
+	right: 0;
+	left: auto;
+}
+
+.pagination .prev {
+	right: 0;
+	left: auto;
+}
+
+.pagination .prev:before {
+	content: "\f429";
+	right: -1px;
+	left: auto;
+}
+
+.pagination .next {
+	right: auto;
+	left: 0;
+}
