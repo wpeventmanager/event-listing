@@ -1,43 +1,85 @@
 <?php
 /**
  * The main template file
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
- * 
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Event_Listing
  */
-get_header(); ?>
-<div class="events-section">
-<?php if ( have_posts() ) : ?>
-        <!--innerpage content start here-->
-        <div class="content">
-          <div class="container">
+
+get_header();
+?>
+<?php if (have_posts()) : ?>
+    <?php
+    if (is_home() && !is_front_page()) :
+        ?>
+        <section class="page-header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="column column-12">
+
+
+                        <header class="page-header">
+                            <h1 class="page-title"><?php single_post_title(); ?></h1>
+                        </header><!-- .page-header -->
+
+
+                    </div> <!-- .column -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+
+        </section>
+    <?php
+    endif;
+    ?>
+    <section class="main-contain-wrapper">
+        <div class="container">
             <div class="row">
-              <div class="col-lg-8">
-                <?php while ( have_posts() ) : the_post();?>
-                <div class="post">
-                  <div class="post-image"><?php echo get_the_post_thumbnail( $post->ID, 'thumbnail' ); ?></div>
-                  <div class="post-thumb-text">
-                    <h1 class="post-title"><a href="<?php echo get_permalink($post->ID);?>"><?php echo esc_html(get_the_title()) ; ?></a></h1>
-                    <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date(); ?></time>
-                    <div class="post-content">
-                        <?php the_content(); ?>
-                    </div>
-                    <div class="readmore-bn"><a href="<?php echo the_permalink();?>"><?php _e('Read more','event-listing');?></a></div>
-                  </div>
-                  <?php endwhile;?>
-                  <?php the_posts_pagination( array(
-                                                    'mid_size' => 2,
-                                                    'prev_text' => __( 'Back', 'event-listing' ),
-                                                    'next_text' => __( 'Onward', 'event-listing' ),
-                                                ) ); ?>
-                  
-                </div>
-                 <!--col-lg-8-->
-             <?php  get_sidebar();   ?>
-             
-              </div>
-            </div>
-          </div> 
-    <?php endif;?>
-</div>
-<?php get_footer(); ?>
+                <div class="column column-12 column-t-9">
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main">
+                            <div class="blog-list">
+                                <?php
+
+
+                                /* Start the Loop */
+                                while (have_posts()) :
+                                    the_post();
+
+                                    /*
+                                     * Include the Post-Type-specific template for the content.
+                                     * If you want to override this in a child theme, then include a file
+                                     * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+                                     */
+                                    get_template_part('template-parts/content', get_post_type());
+
+                                endwhile;
+
+
+                                ?>
+                            </div> <!-- .blog-list -->
+                            <?php
+                            the_posts_navigation();
+                            ?>
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+
+
+                </div> <!-- .column -->
+                <div class="column column-12 column-t-3">
+                    <?php
+                    get_sidebar();
+                    ?>
+                </div> <!-- .column -->
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </section>
+<?php
+endif;
+get_footer();
+

@@ -1,127 +1,120 @@
 <?php
 /**
- * The header file for the event listing theme.
+ * The header for our theme
  *
- * Displays all of the <head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"> section 
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @theme Name: Event Listing
- * @theme URI:http://wp-eventmanager.com/theme/
- * @author: WP Event Manager
- * @author URI: http://www.wp-eventmanager.com/
- * @copyright Copyright (C) 2017 WP Event Manager 
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
- * @version: 1.5
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Event_Listing
  */
+$GLOBALS['event_listing_theme_options'] = event_listing_get_options_value();
+global $event_listing_theme_options;
+$phone = $event_listing_theme_options['event-listing-header-phone'];
+$email = $event_listing_theme_options['event-listing-header-email'];
+$social = absint($event_listing_theme_options['event-listing-header-social']);
+$search = absint($event_listing_theme_options['event-listing-header-search']);
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
 
-
-  <!-- wp head load all enqueue scripts action -->
-  
-  <?php wp_head(); ?>
-  
+    <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
-<!--header start-->
-<header class="site-header">
-  <div class="container">
-  <div class="row">
-  <div class="col-md-12">
-  <h1 class="site-branding">
-  <?php 
-    if ( function_exists( 'the_custom_logo' ) ) {
-    	if( get_custom_logo()){
-			the_custom_logo();
-        }
-        else
-        { 	
-		?>
-        <a href="<?php echo home_url();?>" ><?php bloginfo( 'name' ); ?></a>
-        <?php  }
-    }
-    ?>  
-    </h1>
-    <!--navigation start here-->
-    <div class="navigation">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only"><?php __('Toggle navigation','event-listing');?></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          </div>
-          <div class="navbar-collapse collapse " id="navbar">
-           <?php
-                if ( has_nav_menu( 'header-menu-primary' ) ) {
-                     	wp_nav_menu( array(
-					 'container' =>false,
-					 'menu_class' => 'nav navbar-nav',
-					 'theme_location' => 'header-menu-primary',
-					 'echo' => true,
-					 'before' => '',
-					 'after' => '',
-					 'link_before' => '',
-					 'link_after' => '',
-					 'depth' => 0,
-					 'walker' => new Bootstrap_Walker())
-				 );
-                } ?>
 
-        <?php 
-	
-	if ( is_user_logged_in() ) 
-	{
-	    if ( has_nav_menu( 'header-menu-user' ) ) {
-	        
-	        //For company	 
-			 wp_nav_menu( array(
-						 'container' =>false,
-						 'menu_class' => 'nav navbar-nav',
-						 'theme_location' => 'header-menu-user',
-						 'echo' => true,
-						 'before' => '',
-						 'after' => '',
-						 'link_before' => '',
-						 'link_after' => '',
-						 'depth' => 0,
-						 'walker' => new Bootstrap_Walker())
-					    );   
-	    }
-	}
-	else{
-	    if ( has_nav_menu( 'header-menu-login' ) ) {
-	        
-	        //For company	 
-			 wp_nav_menu( array(
-						 'container' =>false,
-						 'menu_class' => 'nav navbar-nav',
-						 'theme_location' => 'header-menu-login',
-						 'echo' => true,
-						 'before' => '',
-						 'after' => '',
-						 'link_before' => '',
-						 'link_after' => '',
-						 'depth' => 0,
-						 'walker' => new Bootstrap_Walker())
-					    );   
-	    }
-	}   
-			?>	 
-          </div>
-          <!--/.nav-collapse -->
-        </div>
-        <!--/.container-fluid -->
-      </nav>
-    </div>
-    <!--navigation end here-->
-    </div>
-  </div>
-  </div>
-</header>
-<!--header end-->
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+
+<div id="page" class="site">
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'event-listing'); ?></a>
+
+    <header id="masthead" class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="column column-12 column-t-6 top-left">
+                        <?php if (!empty($phone)){ ?>
+                        <span class="top-phone">
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:<?php echo esc_attr($phone);?>"><?php echo esc_html($phone); ?> </a>
+                        </span>
+                        <?php } ?>
+                        <?php if (!empty($email)){ ?>
+                        <span class="top-email">
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:<?php echo esc_attr($email);?>"> <?php echo esc_html($email); ?> </a>
+                        </span>
+                        <?php } ?>
+                    </div>
+                    <?php
+                    if (has_nav_menu('social-menu') && 1 == $social):
+                        ?>
+                        <div class="column column-12 column-t-6 top-right">
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'social-menu',
+                                'menu_id' => 'menu-social-1',
+                                'container' => 'ul',
+                                'menu_class' => 'event-social-menu'
+                            ));
+                            ?>
+                        </div> <!-- .column -->
+                    <?php
+                    endif;
+                    ?>
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!-- .header-top -->
+        <div class="header-main">
+            <div class="container">
+                <div class="row align-middle">
+                    <div class="column column-8 column-t-3 order-t-1">
+                        <div class="site-branding">
+                            <?php
+                            the_custom_logo();
+                            if (is_front_page() && is_home()) :
+                                ?>
+                                <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
+                                                          rel="home"><?php bloginfo('name'); ?></a></h1>
+                            <?php
+                            else :
+                                ?>
+                                <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
+                                                         rel="home"><?php bloginfo('name'); ?></a></p>
+                            <?php
+                            endif;
+                            $event_listing_description = get_bloginfo('description', 'display');
+                            if ($event_listing_description || is_customize_preview()) :
+                                ?>
+                                <p class="site-description"><?php echo $event_listing_description; /* WPCS: xss ok. */ ?></p>
+                            <?php endif; ?>
+                        </div><!-- .site-branding -->
+                    </div> <!-- .column -->
+                    <?php if($search == 1 ) { ?>
+                        <div class="column column-4 column-t-1 order-t-3">
+                            <i class="fa fa-phone"></i>
+                        </div> <!-- .column -->
+                    <?php } ?>
+
+                    <div class="column column-12 column-t-8 order-t-2 text-t-right">
+                        <nav id="site-navigation" class="main-navigation">
+                            <button class="menu-toggle" aria-controls="primary-menu"
+                                    aria-expanded="false"><?php esc_html_e('Primary Menu', 'event-listing'); ?></button>
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'menu-1',
+                                'menu_id' => 'primary-menu',
+                            ));
+                            ?>
+                        </nav><!-- #site-navigation -->
+                    </div> <!-- .column -->
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+        </div> <!-- .header-main -->
+    </header><!-- #masthead -->
+
+    <div id="content" class="site-content">

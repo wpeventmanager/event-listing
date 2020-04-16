@@ -1,79 +1,119 @@
 <?php
 /**
- * The footer file for the Event Listing theme.
+ * The template for displaying the footer
  *
- * Contains the closing of the #content-part div and all content after
+ * Contains the closing of the #content div and all content after.
  *
- * @theme Name: Event Listing
- * @theme URI:http://wp-eventmanager.com/theme/
- * @author: WP Event Manager
- * @author URI: http://www.wp-eventmanager.com/
- * @copyright Copyright (C) 2017 WP Event Manager 
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
- * @version: 1.0
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Event_Listing
  */
+global $event_listing_theme_options;
+$copyright = wp_kses_post($event_listing_theme_options['event-listing-footer-copyright']);
+$social = absint($event_listing_theme_options['event-listing-footer-social']);
 ?>
-<div class="clear"></div>
-<!--footer star here-->
-<footer>
-<section class="footer-top">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-         <?php
-            if(is_active_sidebar('footer-1'))
-            {
-                dynamic_sidebar('footer-1');
-	        }
-        ?> 
-      </div>
-      <div class="col-md-3">
-         <?php
-            if(is_active_sidebar('footer-2'))
-            {
-                dynamic_sidebar('footer-2');
-	        }
-        ?> 
-      </div>
-      <div class="col-md-3">
-         <?php
-            if(is_active_sidebar('footer-3'))
-            {
-                dynamic_sidebar('footer-3');
-	        }
-        ?> 
-      </div>
-      <div class="col-md-3">
-         <?php
-            if(is_active_sidebar('footer-4'))
-            {
-                dynamic_sidebar('footer-4');
-	        }
-        ?> 
-      </div>
-    </div>
-  </div>
 
- </section>
-<section class="footer-bottom">
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-md-6 col-sm-6 col-xs-12">
-                 <div class="copyright-text">
-				 <?php 
-					if( get_theme_mod( 'footer_text_block') != "" ) {
-						echo esc_html( get_theme_mod( 'footer_text_block') );
-					 }
-					?>                                                 
-                 </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</footer>
-<!--footer section-->
-<!--footer end here-->
-<?php wp_footer();?>
+</div><!-- #content -->
+
+<footer id="colophon" class="site-footer">
+    <?php
+    if (is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4')) {
+        ?>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <?php
+                    if (is_active_sidebar('footer-1')) {
+                        ?>
+                        <div class="column column-12 column-sm-6 column-t-3">
+                            <?php dynamic_sidebar('footer-1'); ?>
+                        </div> <!-- .column -->
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if (is_active_sidebar('footer-2')) {
+                        ?>
+                        <div class="column column-12 column-sm-6 column-t-3">
+                            <?php dynamic_sidebar('footer-2'); ?>
+                        </div> <!-- .column -->
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if (is_active_sidebar('footer-3')) {
+                        ?>
+                        <div class="column column-12 column-sm-6 column-t-3">
+                            <?php dynamic_sidebar('footer-3'); ?>
+                        </div> <!-- .column -->
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if (is_active_sidebar('footer-4')) {
+                        ?>
+                        <div class="column column-12 column-sm-6 column-t-3">
+                            <?php dynamic_sidebar('footer-4'); ?>
+                        </div> <!-- .column -->
+                        <?php
+                    }
+                    ?>
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div> <!-- .footer-top -->
+        <?php
+    }
+    ?>
+
+    <div class="footer-bottom">
+        <div class="container text-mb-center">
+            <div class="row">
+                <?php
+                if (has_nav_menu('social-menu') && $social == 1):
+                    ?>
+                    <div class="column column-12 column-t-4 order-t-2 text-t-right">
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'social-menu',
+                            'menu_id' => 'menu-social-1',
+                            'container' => 'ul',
+                            'menu_class' => 'event-social-menu'
+                        ));
+                        ?>
+                    </div> <!-- .column -->
+                <?php
+                endif;
+                ?>
+                <div class="column column-12 column-t-8 order-t-1">
+                    <div class="copyright">
+                        <?php echo $copyright; ?>
+                    </div>
+                    <div class="site-info">
+                        <a href="<?php echo esc_url(__('https://wordpress.org/', 'event-listing')); ?>">
+                            <?php
+                            /* translators: %s: CMS name, i.e. WordPress. */
+                            printf(esc_html__('Proudly powered by %s', 'event-listing'), 'WordPress');
+                            ?>
+                        </a>
+                        <span class="sep"> | </span>
+                        <?php
+                        /* translators: 1: Theme name, 2: Theme author. */
+                        printf(esc_html__('Theme: %1$s by %2$s.', 'event-listing'), 'event-listing', '<a href="http://underscores.me/">Underscores.me</a>');
+                        ?>
+                    </div><!-- .site-info -->
+                </div><!-- .column -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div> <!-- .footer-bottom -->
+
+</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<a id="goTop" class="go-to-top" href="#" title="<?php esc_attr_e('Go to Top', 'event-listing'); ?>">
+    <i class="fa fa-angle-double-up"></i>
+</a>
+
+<?php wp_footer(); ?>
+
 </body>
 </html>

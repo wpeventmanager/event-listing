@@ -1,48 +1,67 @@
 <?php
 /**
- * The template for displaying pages
+ * The template for displaying all pages
  *
  * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
- * @theme Name: Event Listing
- * @theme URI: https://www.wp-eventmanager.com/theme/
- * @author: The WP Event Manager Team
- * @author URI: https://www.wp-eventmanager.com
- * @copyright Copyright (C) 2017 WP Event Manager Team 
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
- * @version: 1.4
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Event_Listing
  */
-?>
-<?php get_header(); ?>
- <div class="events-section">
- <div class="container">
-    <div class="row"> 
-       <div class="col-md-12">
-       <div class="row">
-       <div class="col-md-9">
-       
-           <?php if (have_posts()) : while (have_posts()) : the_post();?>
 
-                    <?php the_content(); ?>
-                    <?php
-            			wp_link_pages( array(
-            				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'event-listing' ) . '</span>',
-            				'after'       => '</div>',
-            				'link_before' => '<span>',
-            				'link_after'  => '</span>',
-            				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'event-listing' ) . ' </span>%',
-            				'separator'   => '<span class="screen-reader-text">, </span>',
-            			) );
-            		?>
-            <?php endwhile; endif; ?>
-        </div>
-      <?php get_sidebar();?>
-      </div>
-      </div>     
-  </div>  
-  </div> 
-</div>
-<?php get_footer(); ?>
+get_header();
+?>
+
+<?php if ( have_posts() ) : ?>
+    <section class="page-header-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <header class="page-header">
+                        <?php
+                        the_title( '<h1 class="entry-title">', '</h1>' );
+                        ?>
+                    </header><!-- .page-header -->
+                </div> <!-- .column -->
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+
+    </section>
+    <section class="main-contain-wrapper">
+    <div class="container">
+    <div class="row">
+    <div class="column column-12 column-t-9">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', 'page' );
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+    </div> <!-- .column -->
+        <div class="column column-12 column-t-3">
+            <?php
+            get_sidebar();
+            ?>
+        </div> <!-- .column -->
+    </div> <!-- .row -->
+    </div> <!-- .container -->
+    </section>
+<?php
+endif;
+get_footer();

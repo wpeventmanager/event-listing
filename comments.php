@@ -1,67 +1,75 @@
 <?php
 /**
- * The template for displaying Comments
+ * The template for displaying comments
  *
- * The area of the page that contains comments and the comment form.
+ * This is the template that displays the area of the page that contains both the current comments
+ * and the comment form.
  *
- * @package WordPress
- * @subpackage Eventlisting
- * @since Eventlisting 1.0
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Event_Listing
  */
 
 /*
- * If the current post is protected by a password and the visitor has not yet
- * entered the password we will return early without loading the comments.
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
  */
 if ( post_password_required() ) {
 	return;
 }
 ?>
+
 <div id="comments" class="comments-area">
-	<?php if ( have_comments() ) : ?>
-	<h2 class="comments-title">
-		<?php
-			printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'event-listing' ),
-					number_format_i18n( get_comments_number() ), get_the_title() );
-			?>
-	</h2>
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'event-listing' ); ?></h1>
-		<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'event-listing' ) ); ?></div>
-		<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'event-listing' ) ); ?></div>
-		
-		printf( esc_html( _n( '&larr; Older Comment', '&larr; Older Comments', get_comment_pages_count(), 'event-listing'  ) ), $count );
-		
-		
-	</nav><!-- #comment-nav-above -->
-	<?php endif; // Check for comment navigation. ?>
-	<ol class="comment-list">
-		<?php
-			wp_list_comments( array(
-				'style'       => 'ol',
-				'short_ping'  => true,
-				'avatar_size' => 34,
-			) );
+
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) :
 		?>
-	</ol><!-- .comment-list -->
+		<h2 class="comments-title">
+			<?php
+			$event_listing_comment_count = get_comments_number();
+			if ( '1' === $event_listing_comment_count ) {
+				printf(
+					/* translators: 1: title. */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'event-listing' ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			} else {
+				printf( // WPCS: XSS OK.
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $event_listing_comment_count, 'comments title', 'event-listing' ) ),
+					number_format_i18n( $event_listing_comment_count ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			}
+			?>
+		</h2><!-- .comments-title -->
 
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'event-listing' ); ?></h1>
-		<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'event-listing' ) ); ?></div>
-		<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'event-listing' ) ); ?></div>
-	</nav><!-- #comment-nav-below -->
-	<?php endif; // Check for comment navigation. ?>
+		<?php the_comments_navigation(); ?>
 
-	<?php if ( ! comments_open() ) : ?>
-	<p class="no-comments"><?php _e( 'Comments are closed.', 'event-listing' ); ?></p>
-	<?php endif; ?>
+		<ol class="comment-list">
+			<?php
+			wp_list_comments( array(
+				'style'      => 'ol',
+				'short_ping' => true,
+			) );
+			?>
+		</ol><!-- .comment-list -->
 
-	<?php endif; // have_comments() ?>
+		<?php
+		the_comments_navigation();
 
-	<?php comment_form(); ?>
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() ) :
+			?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'event-listing' ); ?></p>
+			<?php
+		endif;
+
+	endif; // Check for have_comments().
+
+	comment_form();
+	?>
 
 </div><!-- #comments -->

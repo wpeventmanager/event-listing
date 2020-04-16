@@ -1,1 +1,0 @@
-<?php/** * Single view event meta box * * Hooked into single_event_listing_start priority 20 * * @since  1.0 */ global $post;do_action( 'single_event_listing_meta_before' );?>

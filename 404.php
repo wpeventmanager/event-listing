@@ -1,24 +1,40 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found)
+ * The template for displaying 404 pages (not found)
  *
- * @package WordPress
- * @subpackage eventlisting
- * @since Event Listing 1.0
- * @license URI: http://www.gnu.org/licenses/gpl-2.0.html
- * @license: GNU General Public License v2 or later
- * 
+ * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ *
+ * @package Event_Listing
  */
-get_header(); ?>
-<div id="primary" class="content-area">
-	<div id="content" class="site-content" role="main">
-		<header class="page-header">
-			<h1 class="page-title"><?php _e( 'Not Found', 'event-listing' ); ?></h1>
-		</header>
-		<div class="page-content">
-			<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'event-listing' ); ?></p>
-			<?php get_search_form(); ?>
-		</div><!-- .page-content -->
-	</div><!-- #content -->
-</div><!-- #primary -->
-<?php get_footer();?>
+
+get_header();
+?>
+    <div class="container">
+        <div class="row justify-center">
+            <div class="column column-12 column-t-8">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+
+                        <section class="error-404 not-found text-center">
+                            <header class="page-header">
+                                <h1 class="page-title"><?php esc_html_e( '404', 'event-listing' ); ?></h1>
+                                <h2>Page Not Found</h2>
+                            </header><!-- .page-header -->
+
+                            <div class="page-content">
+                                <p><?php esc_html_e( 'Opps! This does not seem to be the web page you are searching for.', 'event-listing' ); ?></p>
+
+                                <a href="<?php echo home_url(); ?>" title="Goto Home" class="btn">
+                                    <?php _e('Homepage', 'event-listing'); ?>
+                                </a>
+
+                            </div><!-- .page-content -->
+                        </section><!-- .error-404 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div> <!-- .column -->
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+<?php
+get_footer();

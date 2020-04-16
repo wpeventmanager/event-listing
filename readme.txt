@@ -1,112 +1,38 @@
 === Event Listing ===
-Contributors: ashokdudhat,gamthemes
-Requires at least: WordPress 4.1
-Tested up to: WordPress 4.7
-Version: 1.5
-Copyright: 2017 WP Event Manager
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Contributors: automattic
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+Requires at least: 4.5
+Tested up to: 4.8
+Stable tag: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+
+A starter theme called Event Listing.
 
 == Description ==
-Event Listnig is frontend and backend side event posting and listing responsive wordpress theme. Theme using WP Event Manager Plugin which is a **lightweight, scalable and full-featured event management plugin** for adding event listing functionality to your WordPress site. The shortcode lists all the events, it can work with any theme and is really easy to setup and customise. The settings pages let you select how you want the event displayed.
 
-* Mobile-first, Responsive Layout
-* Fully Responsive + HTML5 + CSS3
-* Cross Browser Support
-* Submit an Event
-* Preview Before Event Live
-* Events BY Type & Categories
-* Event Dashboard
-* Manage Events From Frontend & Backend
-* Customizable Design
-* RSS Feeds
-* Searchable & Filterable
-* Contact Page Template
-* Google & Font Awesome Fonts
-* Ready Made Widgets
-* Fully Customizable Options
-* Shortcodes
-* Caching Support
-* Developer friendly code
-* Completely Ajaxified
-* The GPL v2.0 or later license. :) Use it to make something cool.
-
-This theme is licensed under the GNU General Public License v3.0, version 1.5 (GPL) or later. All included images are also under GPL licensing.
-
-For more info please visit theme page: [Event Listing WordPress Theme](https://wp-eventmanager.com/theme/).
+Description
 
 == Installation ==
 
-1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Type in Event Listing in the search form and press the 'Enter' key on your keyboard.
-3. Click on the 'Activate' button to use your new theme right away.
-4. Navigate to Appearance > Customize in your admin panel and customize to taste.
-5. Import provided dummy data which you can get inside theme folder event-listing/dummy-data.
-6. Install WP Event Manager Plugin and activate it.
-
-== Copyright ==
-
-Event Listing WordPress Theme, Copyright 2017 WP Event Manager.
-Event Listing is distributed under the terms of the GNU GPL
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-Event Listing Theme bundles the following third-party resources:
-
-fonts-awesome
-Licenses: MIT/GPL2
-Source: http://fontawesome.io/
-
-Bootstrap
-License: GNU GPL, Version 2 (or later)
-Source: http://getbootstrap.com
+1. In your admin panel, go to Appearance > Themes and click the Add New button.
+2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Activate to use your new theme right away.
 
 == Frequently Asked Questions ==
 
-= How to upload logo? =
+= Does this theme support any plugins? =
 
-You can change logo and other settings from theme customizer.
-
-= How to change layout? =
-
-You can change layout as per your need and that you can override page-tempaltes/front-page.php file and other too.
-
+Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.5 =
+= 1.0 - May 12 2015 =
+* Initial release
 
-* Fixed : String escapping and translation
-* Fixed : script loading template side moved to function file.
-* Fixed : missing prefix.
+== Credits ==
 
-= 1.4 =
-
-* Initial release - bug fixed with reviewing 
-
-= 1.3 =
-
-* Initial release - bug fixed with reviewing 
-
-= 1.2 =
-
-* Initial release - bug fixed with reviewing 
-
-= 1.1 =
-
-* Initial release - bug fixed with reviewing 
-
-= 1.0 =
-
-* Initial release - Released: 10 October, 2017
-
-
-
+* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
