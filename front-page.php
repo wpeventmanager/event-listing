@@ -13,39 +13,38 @@
  */
 
 get_header();
-?>
-<?php
-$query_args = array(
-    'post_type' => 'post',
-    'ignore_sticky_posts' => true,
-    'posts_per_page' => 3
-);
+$slider_arr = array();
+global $event_listing_theme_options;
+$slider_arr[] = absint($event_listing_theme_options['event-listing-slider-page-one']);
+$slider_arr[] = absint($event_listing_theme_options['event-listing-slider-page-two']);
+$slider_arr[] = absint($event_listing_theme_options['event-listing-slider-page-three']);
+//remove duplicate post
+$slider_arr = array_unique($slider_arr);
+//remove if an element is empty
+$slider_arr = array_filter($slider_arr);
 
-$query = new WP_Query($query_args);
-if ($query->have_posts()) :
+if(count($slider_arr) >= 1):
 
     ?>
     <section class="event-slider-wrapper">
         <?php
-        while ($query->have_posts()) :
-            $query->the_post();
 
-            $post_id = get_the_ID();
-            $thumbnail_url = get_the_post_thumbnail_url();
+    foreach($slider_arr as $post_id) {
+            $thumbnail_url = get_the_post_thumbnail_url($post_id);
             ?>
             <div class="event-slider-single text-center" style="background-image: url(<?php echo $thumbnail_url; ?>);">
                 <div class="event-slider-content">
-                    <h2> <a href="<?php the_title(); ?>"> <?php the_title(); ?></h2></a>
-                     <?php the_excerpt_embed(); ?>
-                    <div class="read-more-btn"> <a href="<?php the_permalink(); ?>" class="btn"> <?php _e('Read More', 'event-listing'); ?></a> </div>
+                    <h2><a href="<?php echo get_the_permalink($post_id); ?>"> <?php echo get_the_title($post_id); ?></h2></a>
+                    <?php echo get_the_excerpt($post_id); ?>
+                    <div class="read-more-btn"><a href="<?php echo get_the_permalink($post_id); ?>"
+                                                  class="btn"> <?php _e('Read More', 'event-listing'); ?></a></div>
                 </div>
             </div> <!-- .event-slider-single -->
         <?php
-        endwhile;
-        wp_reset_postdata();
+    }
         ?>
     </section> <!-- .event-slider-wrapper -->
-<?php
+    <?php
 endif;
 ?>
 <?php if (have_posts()) : ?>
@@ -64,7 +63,7 @@ endif;
     <section class="main-contain-wrapper">
         <div class="container">
             <div class="row">
-                <div class="column column-12 column-t-9">
+                <div class="<?php echo primary_column_class(); ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
                             <?php
@@ -109,11 +108,7 @@ endif;
                     </div><!-- #primary -->
 
                 </div> <!-- .column -->
-                <div class="column column-12 column-t-3">
-                    <?php
-                    get_sidebar();
-                    ?>
-                </div> <!-- .column -->
+                <?php do_action('event_listing_sidebar'); ?>
             </div> <!-- .row -->
         </div> <!-- .container -->
     </section>

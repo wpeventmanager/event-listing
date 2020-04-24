@@ -11,13 +11,24 @@
 global $event_listing_theme_options;
 $copyright = wp_kses_post($event_listing_theme_options['event-listing-footer-copyright']);
 $social = absint($event_listing_theme_options['event-listing-footer-social']);
+$column_no = $event_listing_theme_options['event-listing-footer-row'];
 ?>
 
 </div><!-- #content -->
 
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer" <?php event_listing_do_microdata('footer'); ?>>
     <?php
     if (is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4')) {
+
+        if ($column_no == 1) {
+            $column_class = 'column column-12';
+        } else if ($column_no == 2) {
+            $column_class = 'column column-12 column-sm-6';
+        } else if ($column_no == 3) {
+            $column_class = 'column column-12 column-sm-6 column-t-4';
+        } else {
+            $column_class = 'column column-12 column-sm-6 column-t-3';
+        }
         ?>
         <div class="footer-top">
             <div class="container">
@@ -25,7 +36,7 @@ $social = absint($event_listing_theme_options['event-listing-footer-social']);
                     <?php
                     if (is_active_sidebar('footer-1')) {
                         ?>
-                        <div class="column column-12 column-sm-6 column-t-3">
+                        <div class="<?php echo $column_class; ?>">
                             <?php dynamic_sidebar('footer-1'); ?>
                         </div> <!-- .column -->
                         <?php
@@ -34,7 +45,7 @@ $social = absint($event_listing_theme_options['event-listing-footer-social']);
                     <?php
                     if (is_active_sidebar('footer-2')) {
                         ?>
-                        <div class="column column-12 column-sm-6 column-t-3">
+                        <div class="<?php echo $column_class; ?>">
                             <?php dynamic_sidebar('footer-2'); ?>
                         </div> <!-- .column -->
                         <?php
@@ -43,7 +54,7 @@ $social = absint($event_listing_theme_options['event-listing-footer-social']);
                     <?php
                     if (is_active_sidebar('footer-3')) {
                         ?>
-                        <div class="column column-12 column-sm-6 column-t-3">
+                        <div class="<?php echo $column_class; ?>">
                             <?php dynamic_sidebar('footer-3'); ?>
                         </div> <!-- .column -->
                         <?php
@@ -52,7 +63,7 @@ $social = absint($event_listing_theme_options['event-listing-footer-social']);
                     <?php
                     if (is_active_sidebar('footer-4')) {
                         ?>
-                        <div class="column column-12 column-sm-6 column-t-3">
+                        <div class="<?php echo $column_class; ?>">
                             <?php dynamic_sidebar('footer-4'); ?>
                         </div> <!-- .column -->
                         <?php

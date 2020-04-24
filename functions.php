@@ -76,8 +76,8 @@ if ( ! function_exists( 'event_listing_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 300,
+			'width'       => 200,
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
@@ -168,8 +168,8 @@ function event_listing_widgets_init() {
 		'name'          => esc_html__( 'Front Page Widgets', 'event-listing' ),
 		'id'            => 'event-listing-front-page',
 		'description'   => esc_html__( 'Add widgets here.', 'event-listing' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
+		'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="container">',
+		'after_widget'  => '</div></section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
@@ -297,3 +297,8 @@ require get_template_directory() . '/inc/functions/dynamic-css.php';
  * TGM Library
  */
 require get_template_directory() . '/inc/functions/tgm-library.php';
+
+/**
+ * Load Schema Microdata
+ */
+require get_template_directory() . '/inc/functions/microdata.php';

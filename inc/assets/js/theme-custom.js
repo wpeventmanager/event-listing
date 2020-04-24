@@ -46,4 +46,11 @@
 				adaptiveHeight: true
 			});
 		}
+
+		/*search*/
+		if ( $('.search-icon').length > 0 ) {
+			$('.search-icon').click(function () {
+				$('.header-search-block').fadeToggle();
+			});
+		}
 });

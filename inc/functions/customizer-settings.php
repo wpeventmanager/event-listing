@@ -228,7 +228,7 @@ $wp_customize->add_setting('event_listing_options[event-listing-slider-page-one]
     'capability' => 'edit_theme_options',
     'transport' => 'refresh',
     'default' => $default['event-listing-slider-page-one'],
-    'sanitize_callback' => 'event_listing_sanitize_select'
+    'sanitize_callback' => 'absint'
 ));
 
 $wp_customize->add_control('event_listing_options[event-listing-slider-page-one]', array(
@@ -244,7 +244,7 @@ $wp_customize->add_setting('event_listing_options[event-listing-slider-page-two]
     'capability' => 'edit_theme_options',
     'transport' => 'refresh',
     'default' => $default['event-listing-slider-page-two'],
-    'sanitize_callback' => 'event_listing_sanitize_select'
+    'sanitize_callback' => 'absint'
 ));
 
 $wp_customize->add_control('event_listing_options[event-listing-slider-page-two]', array(
@@ -260,7 +260,7 @@ $wp_customize->add_setting('event_listing_options[event-listing-slider-page-thre
     'capability' => 'edit_theme_options',
     'transport' => 'refresh',
     'default' => $default['event-listing-slider-page-three'],
-    'sanitize_callback' => 'event_listing_sanitize_select'
+    'sanitize_callback' => 'absint'
 ));
 
 $wp_customize->add_control('event_listing_options[event-listing-slider-page-three]', array(

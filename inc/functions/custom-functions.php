@@ -158,7 +158,7 @@ add_action('customize_preview_init', 'event_listing_customizer_fonts');
 
 add_action(
     'customize_controls_print_styles',
-    function (){
+    function () {
         ?>
         <style>
             <?php
@@ -180,44 +180,46 @@ add_action(
  * @package Event Listing
  */
 
-if ( ! function_exists( 'event_listing_recommended_plugins' ) ) :
+if (!function_exists('event_listing_recommended_plugins')) :
 
     /**
      * Recommend plugins.
      *
      * @since 1.0.0
      */
-    function event_listing_recommended_plugins() {
+    function event_listing_recommended_plugins()
+    {
 
         $plugins = array(
             array(
-                'name'     => __( 'WP Event Manager', 'event-listing' ),
-                'slug'     => 'wp-event-manager',
+                'name' => __('WP Event Manager', 'event-listing'),
+                'slug' => 'wp-event-manager',
                 'required' => false,
             ),
         );
 
-        tgmpa( $plugins );
+        tgmpa($plugins);
 
     }
 
 endif;
 
-add_action( 'tgmpa_register', 'event_listing_recommended_plugins' );
+add_action('tgmpa_register', 'event_listing_recommended_plugins');
 
 
 /**
  * Checkbox sanitization callback example.
- * 
+ *
  * Sanitization callback for 'checkbox' type controls. This callback sanitizes `$checked`
  * as a boolean value, either TRUE or FALSE.
  *
  * @param bool $checked Whether the checkbox is checked.
  * @return bool Whether the checkbox is checked.
  */
-function event_listing_sanitize_checkbox( $checked ) {
+function event_listing_sanitize_checkbox($checked)
+{
     // Boolean check.
-    return ( ( isset( $checked ) && true == $checked ) ? true : false );
+    return ((isset($checked) && true == $checked) ? true : false);
 }
 
 /**
@@ -225,62 +227,152 @@ function event_listing_sanitize_checkbox( $checked ) {
  *
  * - Sanitization: select
  * - Control: select, radio
- * 
+ *
  * Sanitization callback for 'select' and 'radio' type controls. This callback sanitizes `$input`
  * as a slug, and then validates `$input` against the choices defined for the control.
- * 
+ *
  * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
  * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
  *
- * @param string               $input   Slug to sanitize.
+ * @param string $input Slug to sanitize.
  * @param WP_Customize_Setting $setting Setting instance.
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function event_listing_sanitize_select( $input, $setting ) {
-    
+function event_listing_sanitize_select($input, $setting)
+{
+
     // Ensure input is a slug.
-    $input = sanitize_key( $input );
-    
+    $input = sanitize_key($input);
+
     // Get list of choices from the control associated with the setting.
-    $choices = $setting->manager->get_control( $setting->id )->choices;
-    
+    $choices = $setting->manager->get_control($setting->id)->choices;
+
     // If the input is a valid key, return it; otherwise, return the default.
-    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+    return (array_key_exists($input, $choices) ? $input : $setting->default);
 
 }
+
 /**
  * Number Range sanitization callback example.
  *
  * - Sanitization: number_range
  * - Control: number, tel
- * 
+ *
  * Sanitization callback for 'number' or 'tel' type text inputs. This callback sanitizes
  * `$number` as an absolute integer within a defined min-max range.
- * 
+ *
  * @see absint() https://developer.wordpress.org/reference/functions/absint/
  *
- * @param int                  $number  Number to check within the numeric range defined by the setting.
+ * @param int $number Number to check within the numeric range defined by the setting.
  * @param WP_Customize_Setting $setting Setting instance.
  * @return int|string The number, if it is zero or greater and falls within the defined range; otherwise,
  *                    the setting default.
  */
-function event_listing_sanitize_number_range( $number, $setting ) {
-    
+function event_listing_sanitize_number_range($number, $setting)
+{
+
     // Ensure input is an absolute integer.
-    $number = absint( $number );
-    
+    $number = absint($number);
+
     // Get the input attributes associated with the setting.
-    $atts = $setting->manager->get_control( $setting->id )->input_attrs;
-    
+    $atts = $setting->manager->get_control($setting->id)->input_attrs;
+
     // Get minimum number in the range.
-    $min = ( isset( $atts['min'] ) ? $atts['min'] : $number );
-    
+    $min = (isset($atts['min']) ? $atts['min'] : $number);
+
     // Get maximum number in the range.
-    $max = ( isset( $atts['max'] ) ? $atts['max'] : $number );
-    
+    $max = (isset($atts['max']) ? $atts['max'] : $number);
+
     // Get step.
-    $step = ( isset( $atts['step'] ) ? $atts['step'] : 1 );
-    
+    $step = (isset($atts['step']) ? $atts['step'] : 1);
+
     // If the number is within the valid range, return it; otherwise, return the default
-    return ( $min <= $number && $number <= $max && is_int( $number / $step ) ? $number : $setting->default );
+    return ($min <= $number && $number <= $max && is_int($number / $step) ? $number : $setting->default);
 }
+
+/**
+ * Add custom class in body
+ *
+ * @since Event Listing 1.0.0
+ *
+ */
+
+add_filter('body_class', 'event_listing_custom_class');
+if (!function_exists('event_listing_custom_class')) :
+    function event_listing_custom_class($classes)
+    {
+        global $event_listing_theme_options;
+        $layout = $event_listing_theme_options['event-listing-full-boxed'];
+        $classes[] = esc_attr($event_listing_theme_options['event-listing-site-sidebar']);
+        $classes[] = esc_attr($event_listing_theme_options['event-listing-mobile-sidebar']);
+        if ($layout == 'boxed') {
+            $classes[] = 'boxed-layout';
+        }
+        return $classes;
+    }
+endif;
+
+/**
+ * Add sidebar
+ *
+ * @since Event Listing 1.0.0
+ *
+ */
+
+add_filter('event_listing_sidebar', 'event_listing_sidebar');
+if (!function_exists('event_listing_sidebar')) :
+    function event_listing_sidebar()
+    {
+        global $event_listing_theme_options;
+        $sidebar = $event_listing_theme_options['event-listing-site-sidebar'];
+        //displays sidebar only if it is left and right sidebar
+        if ($sidebar != 'no-sidebar') {
+            echo '<div class="column column-12 column-t-3 secondary-content-area">';
+            get_sidebar();
+            echo '</div>';
+        }
+    }
+
+endif;
+
+/**
+ * Returns Class to Primary Column
+ *
+ * @since Event Listing 1.0.0
+ *
+ */
+
+if (!function_exists('primary_column_class')) :
+    function primary_column_class()
+    {
+        global $event_listing_theme_options;
+        $sidebar = $event_listing_theme_options['event-listing-site-sidebar'];
+        //displays sidebar only if it is left and right sidebar
+        if ($sidebar != 'no-sidebar') {
+            $primary_class = 'column column-12 column-t-9 primary-content-area';
+        } else {
+            $primary_class = 'column column-12 primary-content-area';
+        }
+        return $primary_class;
+    }
+endif;
+
+/**
+ * Function to modify tag clouds font size
+ *
+ * @param none
+ * @return array $args
+ *
+ * @since 1.0.0
+ *
+ */
+if (!function_exists('event_listing_tag_cloud_widget')) :
+    function event_listing_tag_cloud_widget($args)
+    {
+        $args['largest'] = 14; //largest tag
+        $args['smallest'] = 14; //smallest tag
+        $args['unit'] = 'px'; //tag font unit
+        return $args;
+    }
+endif;
+add_filter('widget_tag_cloud_args', 'event_listing_tag_cloud_widget');

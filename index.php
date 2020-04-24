@@ -40,7 +40,7 @@ get_header();
     <section class="main-contain-wrapper">
         <div class="container">
             <div class="row">
-                <div class="column column-12 column-t-9">
+                <div class="<?php echo primary_column_class(); ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
                             <div class="blog-list">
@@ -71,11 +71,7 @@ get_header();
 
 
                 </div> <!-- .column -->
-                <div class="column column-12 column-t-3">
-                    <?php
-                    get_sidebar();
-                    ?>
-                </div> <!-- .column -->
+                <?php do_action('event_listing_sidebar'); ?>
             </div> <!-- .row -->
         </div> <!-- .container -->
     </section>

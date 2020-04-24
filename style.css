@@ -1,10 +1,10 @@
 /*!
 Theme Name: Event Listing
-Theme URI: 
-Author: wpeventmanager
-Author URI: 
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
 Description: Description
-Version: 1.6
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: event-listing
@@ -520,8 +520,15 @@ figure {
 }
 
 table {
-    margin: 0 0 1.5em;
+    margin: 0 0 30px;
     width: 100%;
+    border: 1px solid #999;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td, th {
+    border: 1px solid #999;
+    padding: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -1014,8 +1021,15 @@ h5, h6 {
     margin-right: auto;
     margin-left: auto;
 }
-
-.row {
+body.boxed-layout .site{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px 5px rgba(0,0,0,.1);
+}
+.row,
+.event-listing-main-sidearea .widget .event_listings,
+.event-listing-main-sidearea .widget .event_listings_class {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -1024,7 +1038,9 @@ h5, h6 {
     margin-left: -15px;
 }
 
-.column {
+.column,
+.event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
+.event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -1033,6 +1049,8 @@ h5, h6 {
     flex-basis: 0;
     -ms-flex-positive: 1;
     flex-grow: 1;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     max-width: 100%;
 }
 
@@ -1148,9 +1166,11 @@ h5, h6 {
     color: #fff;
     background-color: #111011;
 }
-.main-contain-wrapper{
+
+.main-contain-wrapper {
     padding: 60px 0;
 }
+
 /*--------------------------------------------------------------
 ## Top Header
 --------------------------------------------------------------*/
@@ -1388,6 +1408,7 @@ h5, h6 {
 *   ----------------------------------------------------- */
 .header-main {
     padding: 30px 0;
+    background-size: cover;
 }
 
 .site-title {
@@ -1401,57 +1422,77 @@ h5, h6 {
 }
 
 /*---------------------------------------------------
-##   Primary Menu
+##  Header Search
 *   ----------------------------------------------------- */
-
+.header-search-block{
+    display: none;
+}
+.header-main .search-icon:hover{
+    cursor: pointer;
+}
+.header-search-inner {
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    width: 320px;
+}
 /*---------------------------------------------------
 ##   Inner Pages
 *   ----------------------------------------------------- */
-.page-header-wrapper{
+.page-header-wrapper {
     padding: 60px 0;
     background: #f1f2f3
 }
-.entry-title, .header-title{
+
+.entry-title, .header-title {
     margin-bottom: 0;
 }
-.post-thumbnail{
+
+.post-thumbnail {
     margin-bottom: 10px;
 }
+
 .post-thumbnail,
-.post-thumbnail img{
+.post-thumbnail img {
     line-height: 1;
     display: block;
 }
+
 .posted-on,
 .byline,
-.cat-links{
+.cat-links {
     margin-right: 15px;
 }
-article .entry-header{
+
+article .entry-header {
     margin-bottom: 10px;
 }
-.blog-list article{
+
+.blog-list article {
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: 1px dashed #eee;
 }
-.blog-list article:last-child{
+
+.blog-list article:last-child {
     border-bottom: none;
 }
 
 /*---------------------------------------------------
 *   Slider
 *   ----------------------------------------------------- */
-.event-slider-wrapper{
+.event-slider-wrapper {
     overflow: hidden;
 }
-.event-slider-single{
+
+.event-slider-single {
     position: relative;
     width: 100%;
     height: 500px;
     background-size: cover;
 }
-.event-slider-single:before{
+
+.event-slider-single:before {
     content: '';
     display: block;
     position: absolute;
@@ -1460,15 +1501,17 @@ article .entry-header{
     right: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
 }
+
 .event-slider-content h2,
 .event-slider-content p,
 .event-slider-content h2 a:visited,
-.event-slider-content h2 a{
+.event-slider-content h2 a {
     color: #fff;
 }
-.event-slider-content{
+
+.event-slider-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1478,16 +1521,32 @@ article .entry-header{
     max-width: 600px;
     z-index: 3;
 }
-.event-slider-content h2{
+
+.event-slider-content h2 {
     font-size: 50px;
     line-height: 1.2;
 }
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'FontAwesome';
+    font-size: 30px;
+    background-color: #fff;
+    border-radius: 100%;
+    color: #2e3192;
+    padding: 5px 15px;
+}
+
+.slick-prev:before {
+    content: "\f104";
+}
+
 /*---------------------------------------------------
 ##   404 Error Page
 *   ----------------------------------------------------- */
 section.error-404 {
     padding: 80px 0;
 }
+
 section.error-404 h1 {
     font-size: 188px;
     line-height: 1.2;
@@ -1496,16 +1555,18 @@ section.error-404 h1 {
     color: #111011;
     text-shadow: 4px 4px 0 #f1f2f3;
 }
+
 section.error-404 h2 {
     font-size: 60px;
     font-weight: 600;
 }
+
 /*---------------------------------------------------
 ##   Footer
 *   ----------------------------------------------------- */
 .site-footer {
     background: #484848;
-    color: #a8acb9;
+    color: #eee;
 }
 
 .site-footer h1,
@@ -1529,6 +1590,150 @@ section.error-404 h2 {
     padding-bottom: 30px;
 }
 
+#goTop {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.7;
+    background: #444;
+    padding: 8px 0;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    text-align: center;
+}
+#goTop:hover{
+    background: #000;
+}
+/*---------------------------------------------------
+##   Widgets
+*   ----------------------------------------------------- */
+.widget {
+    margin-bottom: 40px;
+}
+
+#secondary .widget {
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+}
+
+.widget ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget-title {
+    margin-bottom: 5px;
+}
+
+.widget a {
+    color: #666;
+}
+.widget_archive li,
+.widget_recent_comments li,
+.widget_categories li,
+.widget_recent_entries li,
+.widget_meta li,
+.widget_nav_menu li{
+    padding-left: 25px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.widget_archive li:before,
+.widget_recent_comments li:before,
+.widget_categories li:before,
+.widget_recent_entries  li:before,
+.widget_meta li:before,
+.widget_nav_menu li:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    content: "\f178";
+    display: inline-block;
+    font-family: 'FontAwesome';
+}
+.tag-cloud-link {
+    background: #f4f4f4;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.site-footer .tag-cloud-link{
+    background: #3a3a3a;
+}
+.site-footer a,
+.site-footer .widget a {
+    color: #ccc;
+}
+
+.site-footer .widget a:hover,
+.site-footer a:hover {
+    color: #eee;
+}
+
+
+
+/*---------------------------------------------------
+##   Event Listing Widgets
+*   ----------------------------------------------------- */
+.event-listing-main-sidearea .widget {
+    padding: 60px 0;
+    margin-bottom: 0;
+    background: #f9f9f9;
+}
+
+.event-listing-main-sidearea .widget:nth-child(even) {
+    background: #fff;
+}
+
+.widget .event_listings {
+    margin: 0;
+    padding: 0;
+}
+
+.widget .wpem-single-event-widget {
+    border: none;
+}
+
+.widget .wpem-event-action-url {
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.widget .wpem-event-banner-img {
+    overflow: hidden;
+}
+
+.widget .wpem-event-banner-img img {
+    display: block;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.widget .wpem-event-action-url:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/*---------------------------------------------------
+##   Responsive
+*   ----------------------------------------------------- */
 @media (max-width: 767px) {
     .header-top .column {
         text-align: center;
@@ -1544,6 +1749,16 @@ section.error-404 h2 {
 
     .text-mb-right {
         text-align: right;
+    }
+
+    .sidebar-first .secondary-content-area{
+        -ms-flex-order: 1;
+        order: 1;
+    }
+
+    .sidebar-first .primary-content-area{
+        -ms-flex-order: 2;
+        order: 2;
     }
 }
 
@@ -1579,7 +1794,9 @@ section.error-404 h2 {
         max-width: 41.666667%;
     }
 
-    .column-sm-6 {
+    .column-sm-6,
+    .event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
+    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
@@ -1642,7 +1859,9 @@ section.error-404 h2 {
         max-width: 25%;
     }
 
-    .column-t-4 {
+    .column-t-4,
+    .event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
+    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
@@ -1696,12 +1915,14 @@ section.error-404 h2 {
         max-width: 100%;
     }
 
-    .order-t-1 {
+    .order-t-1,
+    .left-sidebar .secondary-content-area{
         -ms-flex-order: 1;
         order: 1;
     }
 
-    .order-t-2 {
+    .order-t-2,
+    .left-sidebar .primary-content-area{
         -ms-flex-order: 2;
         order: 2;
     }
@@ -1756,7 +1977,9 @@ section.error-404 h2 {
         max-width: 16.666667%;
     }
 
-    .column-l-3 {
+    .column-l-3,
+    .event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
+    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
@@ -1818,7 +2041,10 @@ section.error-404 h2 {
 }
 
 @media (min-width: 1600px) {
-    .container {
+    .container{
         max-width: 1470px;
+    }
+    body.boxed-layout .site{
+        max-width: 1500px;
     }
 }
