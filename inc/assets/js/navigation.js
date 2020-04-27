@@ -12,8 +12,8 @@
 		return;
 	}
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
+	button = document.getElementById( 'menu-button' );
+	if ( ! button ) {
 		return;
 	}
 

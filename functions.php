@@ -243,6 +243,8 @@ function event_listing_scripts() {
 
 	wp_enqueue_style( 'event-listing-style', get_stylesheet_uri() );
 
+    wp_style_add_data( 'event-listing-style', 'rtl', 'replace' );
+
 	wp_enqueue_script('slick', get_template_directory_uri() . '/inc/assets/vendor/slick/slick.min.js', array('jquery'), '20151217', true);
     wp_enqueue_script( 'event-listing-navigation', get_template_directory_uri() . '/inc/assets/js/navigation.js', array(), '20151215', true );
 
@@ -302,3 +304,10 @@ require get_template_directory() . '/inc/functions/tgm-library.php';
  * Load Schema Microdata
  */
 require get_template_directory() . '/inc/functions/microdata.php';
+
+
+/**
+ * Load widgets
+ */
+require get_template_directory() . '/inc/widgets/recent-featured-posts.php';
+require get_template_directory() . '/inc/widgets/call-to-action.php';

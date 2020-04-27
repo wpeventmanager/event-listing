@@ -22,29 +22,35 @@ $slider_arr[] = absint($event_listing_theme_options['event-listing-slider-page-t
 $slider_arr = array_unique($slider_arr);
 //remove if an element is empty
 $slider_arr = array_filter($slider_arr);
+$event_listing_slider_args = array();
+if(is_rtl()){
+    $event_listing_slider_args['rtl']      = true;
+}
+$event_listing_slider_args_encoded = wp_json_encode( $event_listing_slider_args );
 
-if(count($slider_arr) >= 1):
+if (count($slider_arr) >= 1):
 
     ?>
-    <section class="event-slider-wrapper">
+    <section class="event-slider-wrapper"  data-slick='<?php echo $event_listing_slider_args_encoded; ?>'>
         <?php
 
-    foreach($slider_arr as $post_id) {
+        foreach ($slider_arr as $post_id) {
             $thumbnail_url = get_the_post_thumbnail_url($post_id);
             ?>
             <div class="event-slider-single text-center" style="background-image: url(<?php echo $thumbnail_url; ?>);">
                 <div class="event-slider-content">
-                    <h2><a href="<?php echo get_the_permalink($post_id); ?>"> <?php echo get_the_title($post_id); ?></h2></a>
-                    <?php echo get_the_excerpt($post_id); ?>
+                    <h2><a href="<?php echo get_the_permalink($post_id); ?>"> <?php echo get_the_title($post_id); ?>
+                    </h2></a>
+                    <p><?php echo get_the_excerpt($post_id); ?></p>
                     <div class="read-more-btn"><a href="<?php echo get_the_permalink($post_id); ?>"
                                                   class="btn"> <?php _e('Read More', 'event-listing'); ?></a></div>
                 </div>
             </div> <!-- .event-slider-single -->
-        <?php
-    }
+            <?php
+        }
         ?>
     </section> <!-- .event-slider-wrapper -->
-    <?php
+<?php
 endif;
 ?>
 <?php if (have_posts()) : ?>
@@ -60,15 +66,17 @@ endif;
         <?php
     }
     ?>
-    <section class="main-contain-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="<?php echo primary_column_class(); ?>">
-                    <div id="primary" class="content-area">
-                        <main id="main" class="site-main">
-                            <?php
-                            if ('posts' == get_option('show_on_front')) {
-                                ?>
+
+        <?php
+        if ('posts' == get_option('show_on_front')) {
+            ?>
+            <section class="main-contain-wrapper">
+
+            <div class="container">
+                <div class="row">
+                    <div class="<?php echo primary_column_class(); ?>">
+                        <div id="primary" class="content-area">
+                            <main id="main" class="site-main">
                                 <div class="blog-list">
                                     <?php
                                     if (have_posts()) :
@@ -91,27 +99,64 @@ endif;
                                         get_template_part('template-parts/content', 'none');
                                     endif;
                                     ?>
-                                </div> <!-- .ct-post-list -->
+                                </div> <!-- .blog-list -->
+
+                            </main><!-- #main -->
+                        </div><!-- #primary -->
+
+                    </div> <!-- .column -->
+                    <?php do_action('event_listing_sidebar'); ?>
+                </div> <!-- .row -->
+            </div> <!-- .container -->
+            </section>
+            <?php
+        } else {
+            ?>
+            <section class="page-header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="column column-12">
+                            <header class="page-header">
                                 <?php
-                            } else {
-                                while (have_posts()) : the_post();
-                                    get_template_part('template-parts/content', 'page');
+                                the_title('<h1 class="entry-title">', '</h1>');
+                                ?>
+                            </header><!-- .page-header -->
+                        </div> <!-- .column -->
+                    </div> <!-- .row -->
+                </div> <!-- .container -->
 
-                                    // If comments are open or we have at least one comment, load up the comment template.
-                                    if (comments_open() || get_comments_number()) :
-                                        comments_template();
-                                    endif;
-                                endwhile; // End of the loop.
-                            }
-                            ?>
-                        </main><!-- #main -->
-                    </div><!-- #primary -->
+            </section>
+            <section class="main-contain-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="<?php echo primary_column_class(); ?>">
+                            <div id="primary" class="content-area">
+                                <main id="main" class="site-main">
 
-                </div> <!-- .column -->
-                <?php do_action('event_listing_sidebar'); ?>
-            </div> <!-- .row -->
-        </div> <!-- .container -->
-    </section>
+                                    <?php
+                                    while (have_posts()) :
+                                        the_post();
+
+                                        get_template_part('template-parts/content', 'page');
+
+                                        // If comments are open or we have at least one comment, load up the comment template.
+                                        if (comments_open() || get_comments_number()) :
+                                            comments_template();
+                                        endif;
+
+                                    endwhile; // End of the loop.
+                                    ?>
+
+                                </main><!-- #main -->
+                            </div><!-- #primary -->
+                        </div> <!-- .column -->
+                        <?php do_action('event_listing_sidebar'); ?>
+                    </div> <!-- .row -->
+                </div> <!-- .container -->
+            </section>
+            <?php
+        }
+        ?>
 <?php
 endif;
 get_footer();

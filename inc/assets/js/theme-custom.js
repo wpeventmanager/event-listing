@@ -43,14 +43,23 @@
 				centerMode: false,
 				autoplay: true,
 				lazyLoad: 'ondemand',
-				adaptiveHeight: true
+				adaptiveHeight: true,
+				arrows : true
 			});
 		}
 
 		/*search*/
-		if ( $('.search-icon').length > 0 ) {
-			$('.search-icon').click(function () {
+		if ( $('.search-box a').length > 0 ) {
+			$('.search-box a').click(function (e) {
+				e.preventDefault();
 				$('.header-search-block').fadeToggle();
 			});
 		}
+
+		if ( $('.menu-toggle').length > 0 ) {
+			$('.menu-toggle').click(function () {
+				$(this).toggleClass('change');
+			});
+		}
+
 });

@@ -376,3 +376,20 @@ if (!function_exists('event_listing_tag_cloud_widget')) :
     }
 endif;
 add_filter('widget_tag_cloud_args', 'event_listing_tag_cloud_widget');
+
+
+/**
+ * Remove ... From Excerpt
+ *
+ * @since 1.0.0
+ *
+ */
+if (!function_exists('event_listing_excerpt_more')) :
+    function event_listing_excerpt_more($more)
+    {
+        if (!is_admin()) {
+            return '';
+        }
+    }
+endif;
+add_filter('excerpt_more', 'event_listing_excerpt_more');

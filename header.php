@@ -89,7 +89,7 @@ $search = absint($event_listing_theme_options['event-listing-header-search']);
                 }
                 ?>
 
-                <div class="container">
+                <div class="container" id="site-navigation">
                     <div class="row align-middle">
                         <div class="column column-8 column-t-3 order-t-1">
                             <div class="site-branding">
@@ -119,23 +119,47 @@ $search = absint($event_listing_theme_options['event-listing-header-search']);
                         if ($search == 1) {
                             ?>
                             <div class="column column-4 column-t-1 order-t-3 text-right">
-                                <i class="fa fa-search search-icon"></i>
+                                <div class="search-box"> <a href="#">
 
-                                <div class='header-search-block'>
-                                    <div class='header-search-inner'>
-                                        <?php get_search_form(); ?>
-                                    </div> <!-- .menu-search-inner -->
-                                </div> <!-- .menu-search-toogle -->
+                                        <i class="fa fa-search search-icon"></i>
+                                    </a>
+
+                                    <div class='header-search-block'>
+                                        <div class='header-search-inner'>
+                                            <?php get_search_form(); ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button id="menu-button" class="menu-toggle" aria-controls="primary-menu"
+                                        aria-expanded="false">
+                                    <span class="bar1"></span>
+                                    <span class="bar2"></span>
+                                    <span class="bar3"></span>
+                                </button>
                             </div> <!-- .column -->
                             <?php
                             $nav_column_class = 'column column-12 column-t-8 order-t-2 text-t-right';
+                        }else{
+                            ?>
+                        <div class="column column-4 column-t-1 order-t-3 text-right hide-desktop">
+                            <button id="menu-button" class="menu-toggle" aria-controls="primary-menu"
+                                    aria-expanded="false">
+                                <span class="bar1"></span>
+                                <span class="bar2"></span>
+                                <span class="bar3"></span>
+                            </button>
+                        </div> <!-- .column -->
+
+                        <?php
                         }
                         ?>
 
+
                         <div class="<?php echo $nav_column_class; ?>">
-                            <nav id="site-navigation" class="main-navigation" <?php event_listing_do_microdata('navigation'); ?>>
-                                <button class="menu-toggle" aria-controls="primary-menu"
-                                        aria-expanded="false"><?php esc_html_e('Primary Menu', 'event-listing'); ?></button>
+                            <nav class="main-navigation" <?php event_listing_do_microdata('navigation'); ?>>
+
+
                                 <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'menu-1',

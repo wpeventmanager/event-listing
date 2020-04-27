@@ -21,8 +21,11 @@ get_header();
                             ?>
                             <div class="entry-meta">
                                 <?php
-                                event_listing_posted_on();
-                                event_listing_posted_by();
+                                while (have_posts()) :
+                                    the_post();
+                                    event_listing_posted_on();
+                                    event_listing_posted_by();
+                                endwhile; // End of the loop.
                                 ?>
                             </div><!-- .entry-meta -->
                         <?php endif;

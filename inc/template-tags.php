@@ -42,6 +42,7 @@ if (!function_exists('event_listing_posted_by')) :
      */
     function event_listing_posted_by()
     {
+
         $byline = sprintf(
         /* translators: %s: post author. */
             esc_html_x('%s', 'post author', 'event-listing'),
