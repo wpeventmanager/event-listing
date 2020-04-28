@@ -40,7 +40,7 @@ get_header();
     <section class="main-contain-wrapper">
         <div class="container">
             <div class="row">
-                <div class="<?php echo primary_column_class(); ?>">
+                <div class="<?php echo event_listing_primary_column_class(); ?>">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
                             <div class="blog-list">

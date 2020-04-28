@@ -18,13 +18,13 @@ get_header();
                         <section class="error-404 not-found text-center">
                             <header class="page-header">
                                 <h1 class="page-title"><?php esc_html_e( '404', 'event-listing' ); ?></h1>
-                                <h2>Page Not Found</h2>
+                                <h2><?php esc_html_e( 'Page Not Found', 'event-listing' ); ?></h2>
                             </header><!-- .page-header -->
 
                             <div class="page-content">
                                 <p><?php esc_html_e( 'Opps! This does not seem to be the web page you are searching for.', 'event-listing' ); ?></p>
 
-                                <a href="<?php echo home_url(); ?>" title="Goto Home" class="btn">
+                                <a href="<?php echo esc_url(home_url()); ?>" title="Goto Home" class="btn">
                                     <?php _e('Homepage', 'event-listing'); ?>
                                 </a>
 

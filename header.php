@@ -13,7 +13,7 @@ global $event_listing_theme_options;
 $phone = $event_listing_theme_options['event-listing-header-phone'];
 $email = $event_listing_theme_options['event-listing-header-email'];
 $social = absint($event_listing_theme_options['event-listing-header-social']);
-$search = absint($event_listing_theme_options['event-listing-header-search']);
+$h_search = absint($event_listing_theme_options['event-listing-header-search']);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -116,7 +116,7 @@ $search = absint($event_listing_theme_options['event-listing-header-search']);
                         <?php
                         //class for navigation column
                         $nav_column_class = 'column column-12 column-t-9 order-t-2 text-t-right';
-                        if ($search == 1) {
+                        if ($h_search == 1) {
                             ?>
                             <div class="column column-4 column-t-1 order-t-3 text-right">
                                 <div class="search-box"> <a href="#">

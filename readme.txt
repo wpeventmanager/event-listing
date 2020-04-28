@@ -1,18 +1,18 @@
 === Event Listing ===
 
 Contributors: ashokdudhat
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: one-column, two-columns, left-sidebar, right-sidebar, editor-style, featured-images, rtl-language-support, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, entertainment, portfolio
+Requires PHP: 4.7
 Requires at least: 4.5
 Tested up to: 5.4
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A perfect theme for Event Listing site.
-
+A theme compatible with WP Event Manager plugin. This theme is also perfect for the blog and portfolio sites too. 
 == Description ==
 
-A perfect theme for Event Listing site.
+A theme compatible with WP Event Manager plugin. This theme is also perfect for the blog and portfolio sites too. 
 
 == Installation ==
 
@@ -28,8 +28,8 @@ Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0.0 - April 25 2020 =
-* Initial release
+= 1.0.0 - April 28 2020 =
+* Initial release in WordPress Repository
 
 == License ===
 
@@ -49,7 +49,7 @@ Author: 2012-2015 Automattic
 Source: http://underscores.me
 License: GPL v2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
-normalize:
+Normalize:
 Author: 2012-2015 Nicolas Gallagher and Jonathan Neal
 Source: http://necolas.github.io/normalize.css
 License: [MIT/GPL2 Licensed](http://opensource.org/licenses/MIT)
@@ -58,3 +58,26 @@ TGM-Plugin-Activation:
 Author: Thomas Griffin (thomasgriffinmedia.com)
 URL:  https://github.com/TGMPA/TGM-Plugin-Activation
 License: GNU General Public License, version 2
+
+Slick Slider:
+Author: Ken Wheeler
+URL:  https://github.com/kenwheeler/slick
+License: Licensed under the MIT license.
+https://github.com/kenwheeler/slick/blob/master/LICENSE
+
+Font-Awesome 
+Author:  Dave Gandy
+URL: https://github.com/FortAwesome/Font-Awesome 
+License: MIT License 
+http://fontawesome.io/license/
+
+Google Fonts
+Google Fonts - Apache License, version 2.0
+https://developers.google.com/fonts/faq
+
+
+== Images License ==
+* https://pxhere.com/en/photo/727825
+* https://pxhere.com/en/photo/1599045
+* https://pxhere.com/en/photo/1376390
+* https://pxhere.com/en/photo/752204

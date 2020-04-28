@@ -24,13 +24,9 @@ if (!function_exists('event_listing_posted_on')) :
             esc_attr(get_the_modified_date(DATE_W3C)),
             esc_html(get_the_modified_date())
         );
-
-        $posted_on = sprintf(
-        /* translators: %s: post date. */
-            esc_html_x('%s', 'post date', 'event-listing'),
-            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
-        );
-
+        $posted_on = 
+        '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+        
         echo '<span class="posted-on"><i class="fa fa-calendar"></i> ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
     }
@@ -44,12 +40,12 @@ if (!function_exists('event_listing_posted_by')) :
     {
 
         $byline = sprintf(
-        /* translators: %s: post author. */
-            esc_html_x('%s', 'post author', 'event-listing'),
-            '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+            /* translators: %s: post author. */
+            esc_html_x( ' %s', 'post author', 'event-listing' ),
+            '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
         );
 
-        echo '<span class="byline"> <i class="fa fa-user"></i> ' . $byline . '</span>'; // WPCS: XSS OK.
+         echo '<span class="post_by"> <i class="fa fa-user"></i> ' . $byline . '</span>'; // WPCS: XSS OK.
 
     }
 endif;
@@ -65,11 +61,10 @@ if (!function_exists('event_listing_category_list')) :
         if ('post' === get_post_type()) {
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(esc_html__(', ', 'event-listing'));
-            if ($categories_list) {
-                /* translators: 1: list of categories. */
-                printf('<span class="cat-links"><i class="fa fa-folder-open" aria-hidden="true"></i>
- ' . esc_html__('%1$s', 'event-listing') . '</span>', $categories_list); // WPCS: XSS OK.
-            }
+
+            if ( $categories_list ) {
+            echo '<span class="cat-links"> <i class="fa fa-folder-open" aria-hidden="true"></i>' . $categories_list . '</span>';
+        }
 
 
         }
@@ -188,7 +183,7 @@ endif;
 
 if (!function_exists('wp_body_open')) :
     /**
-     * Shim for sites older than 5.2.
+     * For sites older than 5.2.
      *
      * @link https://core.trac.wordpress.org/ticket/12563
      */

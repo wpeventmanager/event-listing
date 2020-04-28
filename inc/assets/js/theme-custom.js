@@ -1,7 +1,4 @@
 /* Custom JS File */
-
-
-
 	jQuery(document).ready(function($) {
 		if ( $('#goTop').length > 0 ) {
 		    // Hide the toTop button when the page loads.

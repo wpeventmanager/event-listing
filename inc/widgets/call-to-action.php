@@ -18,7 +18,7 @@ if (!class_exists('Event_Listing_CTA')) :
             $defaults = array(
                 'title'    => esc_html__( 'Popular Music Event by Local Band', 'event-listing' ),
                 'sub_title'    => esc_html__( 'Do you want to register for free today? We will give 100 free ticket today. Signup now!', 'event-listing' ),
-                'btn_text'    => esc_html__( 'Signup', 'event-listing' ),
+                'cta_btn_text'    => esc_html__( 'Signup', 'event-listing' ),
                 'btn_link'    => esc_url( '#', 'event-listing' ),
 
             );
@@ -44,7 +44,7 @@ if (!class_exists('Event_Listing_CTA')) :
 
             $sub_title = !empty($instance['sub_title']) ? $instance['sub_title'] : '';
 
-            $btn_text = !empty($instance['btn_text']) ? $instance['btn_text'] : '';
+            $cta_btn_text = !empty($instance['cta_btn_text']) ? $instance['cta_btn_text'] : '';
 
             $btn_link = !empty($instance['btn_link']) ? $instance['btn_link'] : ''; 
 
@@ -56,10 +56,10 @@ if (!class_exists('Event_Listing_CTA')) :
 
             <div class="event-listing-cta">
                 <div class="event-listing-cta-subtitle">
-                    <?php esc_html_e($sub_title); ?>
+                    <?php echo esc_html($sub_title); ?>
                 </div>
                 <div class="event-listing-cta-button">
-                    <a href="<?php echo esc_url($btn_link); ?>" class="btn"><?php esc_html_e($btn_text); ?></a>
+                    <a href="<?php echo esc_url($btn_link); ?>" class="btn"><?php echo esc_html($cta_btn_text); ?></a>
                 </div>
 
             </div>
@@ -75,7 +75,7 @@ if (!class_exists('Event_Listing_CTA')) :
             $instance = $old_instance;
             $instance['title'] = sanitize_text_field($new_instance['title']);
             $instance['sub_title'] = sanitize_text_field($new_instance['sub_title']);
-            $instance['btn_text'] = sanitize_text_field($new_instance['btn_text']);
+            $instance['cta_btn_text'] = sanitize_text_field($new_instance['cta_btn_text']);
             $instance['btn_link'] = esc_url_raw($new_instance['btn_link']);
             return $instance;
         }
@@ -102,10 +102,10 @@ if (!class_exists('Event_Listing_CTA')) :
 
             <p>
                 <label
-                for="<?php echo esc_attr($this->get_field_id('btn_text')); ?>"><?php esc_html_e('Button Text:', 'event-listing'); ?></label>
-                <input class="widefat" id="<?php echo esc_attr($this->get_field_id('btn_text')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('btn_text')); ?>" type="text"
-                value="<?php echo esc_attr($instance['btn_text']); ?>"/>
+                for="<?php echo esc_attr($this->get_field_id('cta_btn_text')); ?>"><?php esc_html_e('Button Text:', 'event-listing'); ?></label>
+                <input class="widefat" id="<?php echo esc_attr($this->get_field_id('cta_btn_text')); ?>"
+                name="<?php echo esc_attr($this->get_field_name('cta_btn_text')); ?>" type="text"
+                value="<?php echo esc_attr($instance['cta_btn_text']); ?>"/>
             </p>
 
             <p>

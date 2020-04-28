@@ -342,8 +342,8 @@ endif;
  *
  */
 
-if (!function_exists('primary_column_class')) :
-    function primary_column_class()
+if (!function_exists('event_listing_primary_column_class')) :
+    function event_listing_primary_column_class()
     {
         global $event_listing_theme_options;
         $sidebar = $event_listing_theme_options['event-listing-site-sidebar'];

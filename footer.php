@@ -11,7 +11,7 @@
 global $event_listing_theme_options;
 $copyright = wp_kses_post($event_listing_theme_options['event-listing-footer-copyright']);
 $social = absint($event_listing_theme_options['event-listing-footer-social']);
-$column_no = $event_listing_theme_options['event-listing-footer-row'];
+$column_no = absint($event_listing_theme_options['event-listing-footer-row']);
 ?>
 
 </div><!-- #content -->

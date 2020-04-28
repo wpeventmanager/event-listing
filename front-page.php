@@ -34,15 +34,15 @@ if (count($slider_arr) >= 1):
     <section class="event-slider-wrapper"  data-slick='<?php echo $event_listing_slider_args_encoded; ?>'>
         <?php
 
-        foreach ($slider_arr as $post_id) {
-            $thumbnail_url = get_the_post_thumbnail_url($post_id);
+        foreach ($slider_arr as $s_post_id) {
+            $thumbnail_url = get_the_post_thumbnail_url($s_post_id);
             ?>
             <div class="event-slider-single text-center" style="background-image: url(<?php echo $thumbnail_url; ?>);">
                 <div class="event-slider-content">
-                    <h2><a href="<?php echo get_the_permalink($post_id); ?>"> <?php echo get_the_title($post_id); ?>
+                    <h2><a href="<?php echo get_the_permalink($s_post_id); ?>"> <?php echo get_the_title($s_post_id); ?>
                     </h2></a>
-                    <p><?php echo get_the_excerpt($post_id); ?></p>
-                    <div class="read-more-btn"><a href="<?php echo get_the_permalink($post_id); ?>"
+                    <p><?php echo get_the_excerpt($s_post_id); ?></p>
+                    <div class="read-more-btn"><a href="<?php echo get_the_permalink($s_post_id); ?>"
                                                   class="btn"> <?php _e('Read More', 'event-listing'); ?></a></div>
                 </div>
             </div> <!-- .event-slider-single -->
@@ -74,7 +74,7 @@ endif;
 
             <div class="container">
                 <div class="row">
-                    <div class="<?php echo primary_column_class(); ?>">
+                    <div class="<?php echo event_listing_primary_column_class(); ?>">
                         <div id="primary" class="content-area">
                             <main id="main" class="site-main">
                                 <div class="blog-list">
@@ -129,7 +129,7 @@ endif;
             <section class="main-contain-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="<?php echo primary_column_class(); ?>">
+                        <div class="<?php echo event_listing_primary_column_class(); ?>">
                             <div id="primary" class="content-area">
                                 <main id="main" class="site-main">
 

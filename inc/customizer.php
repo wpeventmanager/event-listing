@@ -81,8 +81,8 @@ if ( !function_exists('event_listing_default_theme_options_values') ) :
             /*Header*/
             'event-listing-header-phone' => esc_html__('+123456789', 'event-listing'),
             'event-listing-header-email'=> esc_html__('info@example.com', 'event-listing'),
-            'event-listing-header-social'=> 1,
-            'event-listing-header-search'=> 1,
+            'event-listing-header-social'=> 0,
+            'event-listing-header-search'=> 0,
 
             /*Slider*/
             'event-listing-slider-page-one'=> 0,
