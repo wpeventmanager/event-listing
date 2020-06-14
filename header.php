@@ -80,7 +80,7 @@ $h_search = absint($event_listing_theme_options['event-listing-header-search']);
         $has_header_image = has_header_image();
         if (!empty($has_header_image)) {
         ?>
-        <div class="header-main" style="background-image: url(<?php echo header_image(); ?>);">
+        <div class="header-main" style="background-image: url(<?php header_image(); ?>);">
             <?php
             } else {
             ?>

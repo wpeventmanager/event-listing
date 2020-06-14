@@ -17,7 +17,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-font-family-url]', array(
@@ -127,7 +127,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h1-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h1-font-family-url]', array(
@@ -237,7 +237,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h2-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h2-font-family-url]', array(
@@ -347,7 +347,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h3-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h3-font-family-url]', array(
@@ -457,7 +457,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h4-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h4-font-family-url]', array(
@@ -567,7 +567,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h5-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h5-font-family-url]', array(
@@ -677,7 +677,7 @@ $wp_customize->add_panel( 'event_listing_typography_panel', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
             'default'           => $default['event-listing-h6-font-family-url'],
-            'sanitize_callback' => 'wp_kses_post'
+            'sanitize_callback' => 'event_listing_font_select'
         ) );
         $choices = event_listing_google_fonts();
         $wp_customize->add_control( 'event_listing_options[event-listing-h6-font-family-url]', array(
