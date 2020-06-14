@@ -37,12 +37,12 @@ if (count($slider_arr) >= 1):
         foreach ($slider_arr as $s_post_id) {
             $thumbnail_url = get_the_post_thumbnail_url($s_post_id);
             ?>
-            <div class="event-slider-single text-center" style="background-image: url(<?php echo $thumbnail_url; ?>);">
+            <div class="event-slider-single text-center" style="background-image: url(<?php echo esc_url($thumbnail_url); ?>);">
                 <div class="event-slider-content">
-                    <h2><a href="<?php echo get_the_permalink($s_post_id); ?>"> <?php echo get_the_title($s_post_id); ?>
+                    <h2><a href="<?php echo get_the_permalink($s_post_id); ?>"> <?php echo esc_html(get_the_title($s_post_id)); ?>
                     </h2></a>
-                    <p><?php echo get_the_excerpt($s_post_id); ?></p>
-                    <div class="read-more-btn"><a href="<?php echo get_the_permalink($s_post_id); ?>"
+                    <p><?php echo esc_html( get_the_excerpt($s_post_id) ); ?></p>
+                    <div class="read-more-btn"><a href="<?php echo esc_url(get_the_permalink($s_post_id)); ?>"
                                                   class="btn"> <?php _e('Read More', 'event-listing'); ?></a></div>
                 </div>
             </div> <!-- .event-slider-single -->

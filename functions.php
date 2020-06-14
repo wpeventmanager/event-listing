@@ -246,7 +246,7 @@ function event_listing_scripts() {
     wp_style_add_data( 'event-listing-style', 'rtl', 'replace' );
 
 	wp_enqueue_script('slick', get_template_directory_uri() . '/inc/assets/vendor/slick/slick.min.js', array('jquery'), '20151217', true);
-    wp_enqueue_script( 'event-listing-navigation', get_template_directory_uri() . '/inc/assets/js/navigation.js', array(), '20151215', true );
+    wp_enqueue_script( 'event-listing-navigation', get_template_directory_uri() . '/inc/assets/js/navigation.js', array(), '20161215', true );
 
 	wp_enqueue_script( 'event-listing-skip-link-focus-fix', get_template_directory_uri() . '/inc/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 

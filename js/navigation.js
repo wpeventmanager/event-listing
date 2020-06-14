@@ -8,6 +8,7 @@
 	var container, button, menu, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
+	nav_tag = document.querySelector('.main-navigation');
 	if ( ! container ) {
 		return;
 	}
@@ -31,12 +32,12 @@
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
+		if ( -1 !== nav_tag.className.indexOf( 'toggled' ) ) {
+			container.className = nav_tag.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			container.className += ' toggled';
+			nav_tag.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
@@ -79,11 +80,10 @@
 	( function( container ) {
 		var touchStartFn, i,
 			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
+		console.log(parentLink);
 		if ( 'ontouchstart' in window ) {
 			touchStartFn = function( e ) {
 				var menuItem = this.parentNode, i;
-
 				if ( ! menuItem.classList.contains( 'focus' ) ) {
 					e.preventDefault();
 					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {

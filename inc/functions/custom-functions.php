@@ -156,9 +156,9 @@ function event_listing_customizer_fonts()
 add_action('customize_controls_print_styles', 'event_listing_customizer_fonts');
 add_action('customize_preview_init', 'event_listing_customizer_fonts');
 
-add_action(
-    'customize_controls_print_styles',
-    function () {
+add_action( 'customize_controls_print_styles', 'event_listing_customize_controls_print_styles');
+if (!function_exists('event_listing_customize_controls_print_styles')) :
+    function event_listing_customize_controls_print_styles() {
         ?>
         <style>
             <?php
@@ -172,7 +172,7 @@ add_action(
         </style>
         <?php
     }
-);
+endif;
 
 /**
  * Recommended plugins
