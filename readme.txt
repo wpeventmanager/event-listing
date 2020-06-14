@@ -3,9 +3,8 @@
 Contributors: ashokdudhat
 Tags: one-column, two-columns, left-sidebar, right-sidebar, editor-style, featured-images, rtl-language-support, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, entertainment, portfolio
 Requires PHP: 4.7
-Requires at least: 4.5
+Requires at least: 4.6
 Tested up to: 5.4
-Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +26,9 @@ A theme compatible with WP Event Manager plugin. This theme is also perfect for 
 Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.8.0 - June 14 2020 =
+* Reviewer Issues fixed
 
 = 1.0.0 - April 28 2020 =
 * Initial release in WordPress Repository
@@ -65,11 +67,11 @@ URL:  https://github.com/kenwheeler/slick
 License: Licensed under the MIT license.
 https://github.com/kenwheeler/slick/blob/master/LICENSE
 
-Font-Awesome 
-Author:  Dave Gandy
-URL: https://github.com/FortAwesome/Font-Awesome 
-License: MIT License 
-http://fontawesome.io/license/
+Font-Awesome
+Source: https://github.com/FortAwesome/Font-Awesome FontAwesome 4.6.3 Copyright 2012 Dave Gandy 
+Font License: SIL OFL 1.1 
+Code License: MIT 
+License http://fontawesome.io/license/
 
 Google Fonts
 Google Fonts - Apache License, version 2.0
@@ -81,3 +83,4 @@ https://developers.google.com/fonts/faq
 * https://pxhere.com/en/photo/1599045
 * https://pxhere.com/en/photo/1376390
 * https://pxhere.com/en/photo/752204
+* https://pxhere.com/en/photo/1117918

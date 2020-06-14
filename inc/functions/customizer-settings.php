@@ -18,7 +18,7 @@ $wp_customize->add_setting('event_listing_options[event-listing-header-phone]', 
     'capability' => 'edit_theme_options',
     'transport' => 'refresh',
     'default' => $default['event-listing-header-phone'],
-    'sanitize_callback' => 'wp_kses_post'
+    'sanitize_callback' => 'sanitize_text_field'
 ));
 
 $wp_customize->add_control('event_listing_options[event-listing-header-phone]', array(
