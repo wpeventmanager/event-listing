@@ -56,6 +56,7 @@
 		if ( $('.menu-toggle').length > 0 ) {
 			$('.menu-toggle').click(function () {
 				$(this).toggleClass('change');
+
 			});
 		}
 
