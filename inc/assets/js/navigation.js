@@ -33,7 +33,7 @@
 
 	button.onclick = function() {
 		if ( -1 !== nav_tag.className.indexOf( 'toggled' ) ) {
-			container.className = nav_tag.className.replace( ' toggled', '' );
+			nav_tag.className = nav_tag.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {

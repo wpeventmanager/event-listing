@@ -26,6 +26,9 @@ A theme compatible with WP Event Manager plugin. This theme is also perfect for 
 Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+= 1.9.0 - June 16 2020 =
+* Reviewer Issues fixed 
+* Keyboard Navigation Fixed
 
 = 1.8.0 - June 14 2020 =
 * Reviewer Issues fixed

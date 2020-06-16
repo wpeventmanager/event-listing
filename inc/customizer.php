@@ -79,8 +79,8 @@ if ( !function_exists('event_listing_default_theme_options_values') ) :
             'event-listing-mobile-sidebar'=> 'content-first',
 
             /*Header*/
-            'event-listing-header-phone' => esc_html__('+123456789', 'event-listing'),
-            'event-listing-header-email'=> esc_html__('info@example.com', 'event-listing'),
+            'event-listing-header-phone' => '',
+            'event-listing-header-email'=> '',
             'event-listing-header-social'=> 0,
             'event-listing-header-search'=> 0,
 
