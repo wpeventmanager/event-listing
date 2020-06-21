@@ -1,17 +1,18 @@
 === Event Listing ===
 
-Contributors: ashokdudhat
-Tags: one-column, two-columns, left-sidebar, right-sidebar, editor-style, featured-images, rtl-language-support, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, entertainment, portfolio
+Contributors: wpeventmanager
+Tags: entertainment, portfolio, e-commerce, one-column, two-columns, full-width-template, left-sidebar, right-sidebar, editor-style, custom-header, custom-background, custom-logo, custom-menu, custom-colors, rtl-language-support, featured-images, threaded-comments, translation-ready, sticky-post, microformats,theme-options
 Requires PHP: 4.7
 Requires at least: 4.6
 Tested up to: 5.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A theme compatible with WP Event Manager plugin. This theme is also perfect for the blog and portfolio sites too. 
+
 == Description ==
 
-A theme compatible with WP Event Manager plugin. This theme is also perfect for the blog and portfolio sites too. 
+Event Listing is a fast, fully customizable & beautiful WordPress theme suitable for any event, blog, portfolio, business website and WooCommerce storefront. A theme compatible with WP Event Manager plugin. Also, It offers special features and templates so it works perfectly with all page builders like Elementor, Visual Composer, Beaver Builder, SiteOrigin, Divi, etc. Some of the other features: # Responsive # RTL #Translation Ready #SEO Friendly # WooCommerce Ready # Extendible with WP Event Manager addons # Regularly updated # Designed, Developed, Maintained & Supported by WP Event Manager’s dedicated team. Looking for a perfect base theme for event listing? Look no further. You can use an event listing theme for building any kind of event website!
+
 
 == Installation ==
 
@@ -26,6 +27,9 @@ A theme compatible with WP Event Manager plugin. This theme is also perfect for 
 Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.11.0 - June 21 2020 =
+* Twick fix in readme and style css.
 
 = 1.10.0 - June 21 2020 =
 * Theme description updated.
