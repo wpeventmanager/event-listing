@@ -122,15 +122,7 @@ function event_listing_ocdi_import_files() {
       'import_preview_image_url'     => 'https://demo.wp-eventmanager.com/wp-content/uploads/dummy-data/virtual-event/virtual-event.png',
       'preview_url'                  => 'https://demo.wp-eventmanager.com/virtual-event-demo/',
     ],
-	[
-      'import_file_name'             => 'Virtual Expo',
-      'categories'                   => [ 'Virtual' ],
-      'import_file_url'            => 'https://demo.wp-eventmanager.com/wp-content/uploads/dummy-data/virtual-expo/virtual-expo-event-content.xml',
-      'import_widget_file_url'     => 'https://demo.wp-eventmanager.com/wp-content/uploads/dummy-data/virtual-expo/virtual-expo-event-demo-widgets.wie',
-      'import_customizer_file_url' => 'https://demo.wp-eventmanager.com/wp-content/uploads/dummy-data/virtual-expo/event-listing-child-virtual-expo-event.dat',
-      'import_preview_image_url'     => 'https://demo.wp-eventmanager.com/wp-content/uploads/dummy-data/virtual-expo/virtual-expo.png',
-      'preview_url'                  => 'https://demo.wp-eventmanager.com/virtualdemoexpo/',
-    ],
+	
 	[
       'import_file_name'             => 'Wedding',
       'categories'                   => [ 'Hybrid' ],
