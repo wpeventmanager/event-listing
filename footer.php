@@ -82,7 +82,7 @@ $column_no = absint($event_listing_theme_options['event-listing-footer-row']);
                 <?php
                 if (has_nav_menu('social-menu') && $social == 1):
                     ?>
-                    <div class="column column-12 column-t-4 order-t-2 text-t-right">
+                    <div class="column column-12 column-t-12 order-t-2 text-t-right">
                         <?php
                         wp_nav_menu(array(
                             'theme_location' => 'social-menu',
@@ -95,7 +95,7 @@ $column_no = absint($event_listing_theme_options['event-listing-footer-row']);
                 <?php
                 endif;
                 ?>
-                <div class="column column-12 column-t-8 order-t-1">
+                <div class="column column-12 column-t-12 order-t-1">
                     <div class="copyright">
                         <?php echo $copyright; ?>
                     </div>

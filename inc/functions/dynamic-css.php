@@ -322,16 +322,13 @@ if (!function_exists('event_listing_dynamic_css')) :
 
         if (!empty($event_listing_primary_color)) {
             $custom_css .= "
-             .top-left,
+            .top-left,
             .top-left a,
-            .top-left a:visited,
             .entry-title a:hover,
-            .entry-title a:visited:hover,
-            .widget a:hover,
+            .widget a,
+            .entry-meta,
             .entry-meta a:hover,
-            .entry-meta a:visited:hover,
-            a:hover,
-            a:visited:hover,
+            a,
             .widget.event-listing-cta-widget .btn,
             .main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a { 
                color:" . $event_listing_primary_color . "; 
@@ -353,14 +350,11 @@ if (!function_exists('event_listing_dynamic_css')) :
             body,
             .top-left a:hover,            
             .entry-title a,
-            .widget a,
             .entry-title,
-            .entry-title a:visited,
-            .entry-meta,
+            a:hover,
+            .widget a:hover,
             .entry-meta a,
-            .entry-meta a:visited,
-            a,
-            a:visited,
+            .main-navigation a,
             .widget.event-listing-cta-widget .btn:hover{ 
                color:" . $event_listing_secondary_color . "; 
             }";
