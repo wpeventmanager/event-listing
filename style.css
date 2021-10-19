@@ -991,12 +991,15 @@ h5, h6 {
     margin-right: auto;
     margin-left: auto;
 }
+body.boxed-layout{
+    background-color: var(--wpem-theme-gray-bg-color);
+}
 
 body.boxed-layout .site {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .site {
     background-color: var(--wpem-theme-gray-bg-color);
@@ -1609,10 +1612,13 @@ section.error-404 h2 {
 
 }
 .footer-bottom .container {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-
+.copyright {
+    text-align: center;
+    margin-bottom: 5px;
+}
 #goTop {
     display: block;
     position: fixed;
@@ -1680,7 +1686,7 @@ form.wp-block-search .wp-block-search__input:focus{
 .widget_recent_entries li,
 .widget_meta li,
 .widget_nav_menu li {
-    padding-left: 25px;
+    padding-left: 20px;
     margin-bottom: 5px;
     position: relative;
 }
@@ -1694,8 +1700,8 @@ form.wp-block-search .wp-block-search__input:focus{
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 14px;
-    content: "\f178";
+    font-size: 12px;
+    content: "\f054";
     display: inline-block;
     font-family: 'FontAwesome';
 }
@@ -1719,104 +1725,45 @@ ol.wp-block-latest-comments{
     border: none;
     width: calc(100% - 40px);
 }
-
-.widget_search button,
-.header-search-inner button {
-    
-}
-
 .header-search-inner button {
     top: 3px;
     right: 3px;
 }
-
 .event-listing-main-sidearea .widget {
     padding: 60px 0;
     margin-bottom: 0;
     background: #f9f9f9;
 }
-
 .event-listing-main-sidearea .widget:nth-child(even) {
     background: #fff;
 }
-
-.widget .event_listings {
-    margin: 0;
-    padding: 0;
-}
-
-.widget .wpem-single-event-widget {
-    border: none;
-}
-
-.widget .wpem-event-action-url {
-    display: block;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 .widget .wpem-event-banner-img {
     overflow: hidden;
 }
-
 .widget .wpem-event-banner-img img {
     display: block;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
 }
-
 .widget .wpem-event-action-url:hover img {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-
-
-.widget.event-listing-cta-widget {
-    color: var(--wpem-theme-white-color);
-    text-align: center;
-}
-
-.widget.event-listing-cta-widget .btn {
-    background-color: var(--wpem-theme-white-color);
-}
-
 .event-listing-cta-button {
     margin-top: 20px;
 }
-
-.recent-post-list .column {
-    margin-top: 30px;
-}
-
-.recent-post-list .column:nth-child(1) {
+.recent-post-list .recent-post-list-single:nth-child(1) {
     margin-top: 0;
 }
-
 .recent-post-list figure {
     margin: 0;
 }
-
-.recent-post-list .column .recent-post-single {
-    background: #fff;
-    height: 100%;
-    position: relative;
-    -webkit-box-shadow: 1px 1px 10px 0px #ddd;
-    -moz-box-shadow: 1px 1px 10px 0px #ddd;
-    box-shadow: 1px 1px 10px 0px #ddd;
+.recent-post-list .recent-post-single {
+    background: var(--wpem-theme-white-color);
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--wpem-theme-gray-border-color);
+    border-radius: 4px;
 }
-
-.recent-post-list .widget_featured_content {
-    padding: 20px 20px 0;
-}
-
 .recent-post-list .entry-title,
 .recent-post-list .entry-meta {
     margin-bottom: 5px;
@@ -1990,8 +1937,7 @@ ol.wp-block-latest-comments{
 
     .column-sm-6,
     .event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
-    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget,
-    .recent-post-list-single {
+    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget{
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
@@ -2102,8 +2048,8 @@ ol.wp-block-latest-comments{
 
     .column-t-4,
     .event-listing-main-sidearea .widget .event_listings .wpem-single-event-widget,
-    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget,
-    .recent-post-list-single {
+    .event-listing-main-sidearea .widget .event_listings_class .wpem-single-event-widget
+    {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
