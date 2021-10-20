@@ -157,3 +157,24 @@ function event_listing_ocdi_after_import_setup() {
 }
 add_action( 'ocdi/after_import', 'event_listing_ocdi_after_import_setup' );
 
+
+
+function event_listing_ocdi_register_plugins( $plugins ) {
+
+  $theme_plugins = [
+    [ // A WordPress.org plugin repository 
+      'name'     => 'WP Event Manager', // Name of the plugin.
+      'slug'     => 'wp-event-manager', 
+      'required' => true,                   
+    ],
+    [ // A WordPress.org plugin repository example.
+      'name'     => 'Elementor', // Name of the plugin.
+      'slug'     => 'elementor', 
+      'required' => true,                   
+    ],
+  ];
+ 
+  return $theme_plugins;
+}
+add_filter( 'ocdi/register_plugins', 'event_listing_ocdi_register_plugins' );
+
