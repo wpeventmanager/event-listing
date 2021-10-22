@@ -58,12 +58,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
  :root{
-    --wpem-theme-primary-color: #0096ff;
-    --wpem-theme-dark-color: #111111;
-    --wpem-theme-gray-color: #555555;
-    --wpem-theme-white-color: #ffffff;
-    --wpem-theme-gray-border-color: #e4e4e4;
-    --wpem-theme-gray-bg-color: #f5f5f5;
+    --wpem-primary-color: #0096ff;
+    --wpem-dark-color: #111111;
+    --wpem-gray-color: #555555;
+    --wpem-white-color: #ffffff;
+    --wpem-gray-border-color: #e4e4e4;
+    --wpem-gray-bg-color: #f5f5f5;
  }
 
 html {
@@ -217,6 +217,8 @@ img {
     padding: 7px 20px;
     display: inline-block;
     border-radius: 4px;
+    border: 0;
+    cursor: pointer;
 }
 
 select{
@@ -225,6 +227,7 @@ select{
     background-position: right 1rem center;
     appearance: none;
     -webkit-appearance: none;
+    padding-right: 30px !important;
 }
 
 button,
@@ -427,8 +430,7 @@ input,
 select,
 optgroup,
 textarea {
-    color: var(--wpem-theme-dark-color);
-    font-family: sans-serif;
+    color: var(--wpem-dark-color);
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.5;
@@ -501,7 +503,7 @@ html {
 }
 
 hr {
-    background-color: var(--wpem-theme-gray-border-color);
+    background-color: var(--wpem-gray-border-color);
     border: 0;
     height: 1px;
     margin-bottom: 1.5em;
@@ -548,13 +550,13 @@ figure {
 table {
     margin: 0 0 30px;
     width: 100%;
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    border: 1px solid var(--wpem-gray-border-color);
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 td, th {
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    border: 1px solid var(--wpem-gray-border-color);
     padding: 5px;
 }
 
@@ -577,8 +579,8 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    color: var(--wpem-theme-gray-color);
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    color: var(--wpem-gray-color);
+    border: 1px solid var(--wpem-gray-border-color);
     border-radius: 4px;
     padding: 8px;
 }
@@ -599,13 +601,13 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-    color: var(--wpem-theme-dark-color);
-    border-color: var(--wpem-theme-primary-color);
+    color: var(--wpem-dark-color);
+    border-color: var(--wpem-primary-color);
     outline: none;
 }
 
 select {
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    border: 1px solid var(--wpem-gray-border-color);
 }
 
 textarea {
@@ -721,12 +723,12 @@ a:focus, a:hover, a:active {
 }
 
 .screen-reader-text:focus {
-    background-color: var(--wpem-theme-gray-bg-color);
+    background-color: var(--wpem-gray-bg-color);
     border-radius: 4px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: var(--wpem-theme-dark-color);
+    color: var(--wpem-dark-color);
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -992,7 +994,7 @@ h5, h6 {
     margin-left: auto;
 }
 body.boxed-layout{
-    background-color: var(--wpem-theme-gray-bg-color);
+    background-color: var(--wpem-gray-bg-color);
 }
 
 body.boxed-layout .site {
@@ -1002,7 +1004,7 @@ body.boxed-layout .site {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .site {
-    background-color: var(--wpem-theme-gray-bg-color);
+    background-color: var(--wpem-gray-bg-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1011,7 +1013,7 @@ body.boxed-layout .site {
     flex: 1;
 }
 .content-area {
-    background-color: var(--wpem-theme-white-color);
+    background-color: var(--wpem-white-color);
     padding: 30px;
     border-radius: 4px;
 }
@@ -1136,8 +1138,8 @@ body.boxed-layout .site {
 .btn:visited:hover,
 .btn.focus-visble,
 .btn.focus-visible:visited {
-    background-color: var(--wpem-theme-dark-color);
-    color: var(--wpem-theme-white-color);
+    background-color: var(--wpem-dark-color);
+    color: var(--wpem-white-color);
 }
 
 .main-contain-wrapper {
@@ -1148,7 +1150,7 @@ body.boxed-layout .site {
 ## Top Header
 --------------------------------------------------------------*/
 .header-top {
-    background-color: var(--wpem-theme-gray-bg-color);
+    background-color: var(--wpem-gray-bg-color);
     padding: 10px 0;
 }
 
@@ -1381,7 +1383,7 @@ body.boxed-layout .site {
 *   ----------------------------------------------------- */
 .header-main {
     padding: 30px 0;
-    background-color: var(--wpem-theme-white-color);
+    background-color: var(--wpem-white-color);
 }
 .site-title {
     margin: 0;
@@ -1409,7 +1411,7 @@ body.boxed-layout .site {
 ## Primary Menu
 =============================================*/
 .refined-magazine-menu-container {
-    background-color: var(--wpem-theme-dark-color)
+    background-color: var(--wpem-dark-color)
 }
 .main-navigation li a {
     padding: 10px;
@@ -1418,13 +1420,13 @@ body.boxed-layout .site {
     text-decoration: none;
 }
 .main-navigation ul ul {
-    background: var(--wpem-theme-white-color);
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    background: var(--wpem-white-color);
+    border: 1px solid var(--wpem-gray-border-color);
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04);
     text-align: left;
 }
 .main-navigation ul ul li {
-    border-bottom: 1px solid var(--wpem-theme-gray-border-color);
+    border-bottom: 1px solid var(--wpem-gray-border-color);
     width: 100%;
 }
 .main-navigation ul ul li:last-child {
@@ -1445,8 +1447,8 @@ body.boxed-layout .site {
 *   ----------------------------------------------------- */
 .page-header-wrapper {
     padding: 50px 0;
-    background: var(--wpem-theme-white-color);
-    border-top: 1px solid var(--wpem-theme-gray-border-color);
+    background: var(--wpem-white-color);
+    border-top: 1px solid var(--wpem-gray-border-color);
 }
 .header-title,
 h1.page-title {
@@ -1472,7 +1474,7 @@ article .entry-header,
 .blog-list article {
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: 1px solid var(--wpem-theme-gray-border-color);
+    border-bottom: 1px solid var(--wpem-gray-border-color);
 }
 
 .blog-list article:last-child {
@@ -1521,7 +1523,7 @@ blockquote p:last-child {
 .event-slider-content p,
 .event-slider-content h2 a:visited,
 .event-slider-content h2 a {
-    color: var(--wpem-theme-white-color);
+    color: var(--wpem-white-color);
 }
 
 .event-slider-content {
@@ -1580,30 +1582,26 @@ blockquote p:last-child {
 /*---------------------------------------------------
 ##   404 Error Page
 *   ----------------------------------------------------- */
-section.error-404 {
-    padding: 80px 0;
+.error-404 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
 }
-
-section.error-404 h1 {
-    font-size: 188px;
-    line-height: 1.2;
-    font-weight: 700;
-    margin: 0;
-    color: var(--wpem-theme-dark-color);
-    text-shadow: 4px 4px 0 #f1f2f3;
+.error-404 h1 {
+    font-size: 180px;
+    line-height: normal;
+    color: var(--wpem-dark-color);
 }
-
-section.error-404 h2 {
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 1.2;
+.error-404 h2 {
+    font-size: 40px;
+    line-height: normal;
 }
 
 /*---------------------------------------------------
 ##   Footer
 *   ----------------------------------------------------- */
 .site-footer {
-    background: var(--wpem-theme-white-color);
+    background: var(--wpem-white-color);
 }
 .footer-top .container {
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
@@ -1614,20 +1612,20 @@ section.error-404 h2 {
 .footer-bottom .container {
     padding-top: 20px;
     padding-bottom: 20px;
-}
-.copyright {
-    text-align: center;
-    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 #goTop {
     display: block;
     position: fixed;
     bottom: 10px;
     right: 10px;
-    color: var(--wpem-theme-white-color);
+    color: var(--wpem-white-color);
     font-size: 20px;
     opacity: 0.7;
-    background: var(--wpem-theme-dark-color);
+    background: var(--wpem-dark-color);
     padding: 8px 0;
     height: 44px;
     width: 44px;
@@ -1636,19 +1634,16 @@ section.error-404 h2 {
 }
 
 #goTop:hover {
-    background: var(--wpem-theme-dark-color);
+    background: var(--wpem-dark-color);
     opacity: 1;
-}
-.site-footer .site-info {
-    text-align: center;
 }
 
 /*---------------------------------------------------
 ##   Widgets
 *   ----------------------------------------------------- */
 form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button {
-    background: var(--wpem-theme-primary-color);
-    color: var(--wpem-theme-white-color);
+    background: var(--wpem-primary-color);
+    color: var(--wpem-white-color);
     border: 0px;
     border-radius: 4px;
     cursor: pointer;
@@ -1663,16 +1658,16 @@ form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrappe
     cursor: pointer;
 }
 form.wp-block-search .wp-block-search__input {
-    border: 1px solid var(--wpem-theme-gray-bg-color);
+    border: 1px solid var(--wpem-gray-border-color);
     padding: 10px;
 }
 form.wp-block-search .wp-block-search__input:focus{
-    border-color: var(--wpem-theme-primary-color);
+    border-color: var(--wpem-primary-color);
 }
 #secondary .widget {
     padding: 20px;
     border-radius: 4px;
-    background-color: var(--wpem-theme-white-color);
+    background-color: var(--wpem-white-color);
 }
 
 .widget ul {
@@ -1758,10 +1753,10 @@ ol.wp-block-latest-comments{
     margin: 0;
 }
 .recent-post-list .recent-post-single {
-    background: var(--wpem-theme-white-color);
+    background: var(--wpem-white-color);
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid var(--wpem-theme-gray-border-color);
+    border: 1px solid var(--wpem-gray-border-color);
     border-radius: 4px;
 }
 .recent-post-list .entry-title,
@@ -1824,7 +1819,7 @@ ol.wp-block-latest-comments{
     .bar1, .bar2, .bar3 {
         width: 28px;
         height: 3px;
-        background-color: var(--wpem-theme-primary-color);
+        background-color: var(--wpem-primary-color);
         margin: 6px 0;
         transition: 0.4s;
         display: block;
@@ -1899,6 +1894,16 @@ ol.wp-block-latest-comments{
     .search-box {
         display: inline-block;
         padding: 5px 10px;
+        font-size: 20px;
+    }
+    .error-404 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .error-404 h1{
+        font-size: 80px;
+    }
+    .error-404 h2{
         font-size: 20px;
     }
 
