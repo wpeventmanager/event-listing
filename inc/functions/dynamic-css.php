@@ -389,8 +389,7 @@ if (!function_exists('event_listing_dynamic_css')) :
 
         if (!empty($event_listing_link_color)) {
             $custom_css .= "
-            .entry-content a,
-            .entry-content a:visited{ 
+            .entry-content a{ 
                 color:" . $event_listing_link_color . "; 
             }";
         }
