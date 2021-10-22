@@ -223,7 +223,14 @@ function event_listing_scripts() {
  
  	/*font  */
 	global $event_listing_theme_options;
+
+	if(empty($event_listing_theme_options))
+		return;
+
 	$event_listing_name_font_url   = esc_attr( $event_listing_theme_options['event-listing-font-family-url'] );
+
+	print_r($event_listing_name_font_url);
+
 	$h1_font = esc_attr( $event_listing_theme_options['event-listing-h1-font-family-url'] );
 	$h2_font = esc_attr( $event_listing_theme_options['event-listing-h2-font-family-url'] );
 	$h3_font = esc_attr( $event_listing_theme_options['event-listing-h3-font-family-url'] );
@@ -256,7 +263,7 @@ function event_listing_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'event_listing_scripts' );
+add_action( 'wp_enqueue_scripts', 'event_listing_scripts',99 );
 
 /**
  * Implement the Custom Header feature.

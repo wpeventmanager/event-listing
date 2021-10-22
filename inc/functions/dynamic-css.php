@@ -14,6 +14,9 @@ if (!function_exists('event_listing_dynamic_css')) :
     {
         global $event_listing_theme_options;
 
+        if(empty($event_listing_theme_options))
+            return;
+
         /* Paragraph Font Options */
         $event_listing_google_fonts = event_listing_google_fonts();
         $event_listing_font_family = $event_listing_theme_options['event-listing-font-family-url'];

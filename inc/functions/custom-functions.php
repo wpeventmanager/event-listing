@@ -329,6 +329,9 @@ if (!function_exists('event_listing_custom_class')) :
     function event_listing_custom_class($classes)
     {
         global $event_listing_theme_options;
+        if(empty($event_listing_theme_options))
+            return;
+
         $layout = $event_listing_theme_options['event-listing-full-boxed'];
         $classes[] = esc_attr($event_listing_theme_options['event-listing-site-sidebar']);
         $classes[] = esc_attr($event_listing_theme_options['event-listing-mobile-sidebar']);
