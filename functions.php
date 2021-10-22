@@ -229,8 +229,6 @@ function event_listing_scripts() {
 
 	$event_listing_name_font_url   = esc_attr( $event_listing_theme_options['event-listing-font-family-url'] );
 
-	print_r($event_listing_name_font_url);
-
 	$h1_font = esc_attr( $event_listing_theme_options['event-listing-h1-font-family-url'] );
 	$h2_font = esc_attr( $event_listing_theme_options['event-listing-h2-font-family-url'] );
 	$h3_font = esc_attr( $event_listing_theme_options['event-listing-h3-font-family-url'] );

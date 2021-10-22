@@ -100,7 +100,7 @@ $column_no = absint($event_listing_theme_options['event-listing-footer-row']);
                         <?php echo $copyright; ?>
                     </div>
                     <div class="site-info">Powered by
-                        <a href="<?php echo esc_url(__('https://wordpress.org/', 'event-listing')); ?>">
+                        <a href="<?php echo esc_url(__('https://wordpress.org/themes/event-listing/', 'event-listing')); ?>">
                             <?php
                             /* translators: %s: CMS name, i.e. WordPress. */
                             printf(esc_html__('Event Listing WordPress Theme %s', 'event-listing'), '');
