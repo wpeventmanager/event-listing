@@ -56,20 +56,25 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+ /*:root{
+    --wpem-theme-primary-color: #0096ff;
+    --wpem-theme-secondary-color: #111111;
 
- :root{
-    --wpem-primary-color: #0096ff;
-    --wpem-dark-color: #111111;
-    --wpem-gray-color: #555555;
-    --wpem-white-color: #ffffff;
-    --wpem-gray-border-color: #e4e4e4;
-    --wpem-gray-bg-color: #f5f5f5;
- }
+    --wpem-theme-link-color: #0096FF;
+    --wpem-theme-link-hover-color: #111111;
+
+    --wpem-theme-button-color: #0096FF;
+    --wpem-theme-button-text-color: #ffffff;
+
+    --wpem-theme-content-color: #ffffff;
+ }*/
 
 html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
+
+
 
 
 /* Sections
@@ -86,6 +91,7 @@ html {
 
 body {
     margin: 0;
+    background-color: #f5f5f5;
 }
 
 /**
@@ -219,6 +225,45 @@ img {
     border-radius: 4px;
     border: 0;
     cursor: pointer;
+}
+
+.btn,
+.wp-block-button__link,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button{ 
+    background-color: var(--wpem-theme-button-color); 
+    color: var(--wpem-theme-button-text-color);
+}
+
+.btn:hover,
+.wp-block-button__link:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover{ 
+    background-color: var(--wpem-theme-secondary-color); 
+    color: var(--wpem-theme-button-text-color);
+}
+
+a,
+.widget a,
+.entry-meta i,
+.entry-content a{ 
+    color: var(--wpem-theme-link-color); 
+}
+
+a:hover,
+.widget a:hover,
+.entry-content a:hover{
+    color: var(--wpem-theme-link-hover-color);
+}
+
+.entry-title a{
+    color: var(--wpem-theme-secondary-color);
 }
 
 select{
@@ -430,7 +475,7 @@ input,
 select,
 optgroup,
 textarea {
-    color: var(--wpem-dark-color);
+    color: var(--wpem-theme-secondary-color);
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.5;
@@ -503,7 +548,7 @@ html {
 }
 
 hr {
-    background-color: var(--wpem-gray-border-color);
+    background-color: var(--wpem-theme-secondary-color);
     border: 0;
     height: 1px;
     margin-bottom: 1.5em;
@@ -550,13 +595,13 @@ figure {
 table {
     margin: 0 0 30px;
     width: 100%;
-    border: 1px solid var(--wpem-gray-border-color);
+    border: 1px solid var(--wpem-theme-secondary-color);
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 td, th {
-    border: 1px solid var(--wpem-gray-border-color);
+    border: 1px solid var(--wpem-theme-secondary-color);
     padding: 5px;
 }
 
@@ -579,8 +624,8 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    color: var(--wpem-gray-color);
-    border: 1px solid var(--wpem-gray-border-color);
+    color: var(--wpem-theme-secondary-color);
+    border: 1px solid var(--wpem-theme-secondary-color);
     border-radius: 4px;
     padding: 8px;
 }
@@ -601,13 +646,13 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-    color: var(--wpem-dark-color);
-    border-color: var(--wpem-primary-color);
+    color: var(--wpem-theme-secondary-color);
+    border-color: var(--wpem-theme-primary-color);
     outline: none;
 }
 
 select {
-    border: 1px solid var(--wpem-gray-border-color);
+    border: 1px solid var(--wpem-theme-secondary-color);
 }
 
 textarea {
@@ -622,6 +667,7 @@ textarea {
 --------------------------------------------------------------*/
 a {
     text-decoration: none;
+    transition: all 0.2s 0s;
 }
 a:focus, a:hover, a:active {
     outline: none;
@@ -643,36 +689,10 @@ a:focus, a:hover, a:active {
     margin: 0;
     padding-left: 0;
 }
-
-.main-navigation ul ul {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-    float: left;
-    position: absolute;
-    top: 100%;
-    left: -999em;
-    z-index: 99999;
-    min-width: 200px;
-}
-
-.main-navigation ul ul ul {
-    left: -999em;
-    top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-    left: 100%;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-    left: auto;
-}
-
 .main-navigation li {
     float: left;
     position: relative;
 }
-
 .main-navigation a {
     display: block;
     text-decoration: none;
@@ -723,12 +743,12 @@ a:focus, a:hover, a:active {
 }
 
 .screen-reader-text:focus {
-    background-color: var(--wpem-gray-bg-color);
+    background-color: var(--wpem-theme-content-color);
     border-radius: 4px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: var(--wpem-dark-color);
+    color: var(--wpem-theme-secondary-color);
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -994,7 +1014,7 @@ h5, h6 {
     margin-left: auto;
 }
 body.boxed-layout{
-    background-color: var(--wpem-gray-bg-color);
+    background-color: var(--wpem-theme-content-color);
 }
 
 body.boxed-layout .site {
@@ -1004,7 +1024,6 @@ body.boxed-layout .site {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .site {
-    background-color: var(--wpem-gray-bg-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1013,7 +1032,7 @@ body.boxed-layout .site {
     flex: 1;
 }
 .content-area {
-    background-color: var(--wpem-white-color);
+    background-color: var(--wpem-theme-content-color);
     padding: 30px;
     border-radius: 4px;
 }
@@ -1138,24 +1157,12 @@ body.boxed-layout .site {
 .btn:visited:hover,
 .btn.focus-visble,
 .btn.focus-visible:visited {
-    background-color: var(--wpem-dark-color);
-    color: var(--wpem-white-color);
+    background-color: var(--wpem-theme-secondary-color);
+    color: var(--wpem-theme-button-text-color);
 }
 
 .main-contain-wrapper {
     padding: 60px 0;
-}
-
-/*--------------------------------------------------------------
-## Top Header
---------------------------------------------------------------*/
-.header-top {
-    background-color: var(--wpem-gray-bg-color);
-    padding: 10px 0;
-}
-
-.top-phone {
-    margin-right: 20px;
 }
 
 
@@ -1382,8 +1389,9 @@ body.boxed-layout .site {
 ##   Header Main
 *   ----------------------------------------------------- */
 .header-main {
-    padding: 30px 0;
-    background-color: var(--wpem-white-color);
+    padding: 15px 0;
+    background-color: var(--wpem-theme-content-color);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04);
 }
 .site-title {
     margin: 0;
@@ -1411,22 +1419,41 @@ body.boxed-layout .site {
 ## Primary Menu
 =============================================*/
 .refined-magazine-menu-container {
-    background-color: var(--wpem-dark-color)
+    background-color: var(--wpem-theme-secondary-color)
 }
 .main-navigation li a {
-    padding: 10px;
+    color: var(--wpem-theme-secondary-color);
 }
 .main-navigation li a:hover {
     text-decoration: none;
+    color: var(--wpem-theme-link-color);
 }
 .main-navigation ul ul {
-    background: var(--wpem-white-color);
-    border: 1px solid var(--wpem-gray-border-color);
+    float: left;
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999;
+    min-width: 200px;
+    background: var(--wpem-theme-content-color);
+    border-top: 2px solid var(--wpem-theme-primary-color);
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04);
     text-align: left;
+    padding: 10px 0;
+}
+.main-navigation ul ul ul {
+    left: -999em;
+    top: 0;
+}
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+    left: 100%;
+}
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+    left: auto;
 }
 .main-navigation ul ul li {
-    border-bottom: 1px solid var(--wpem-gray-border-color);
     width: 100%;
 }
 .main-navigation ul ul li:last-child {
@@ -1446,9 +1473,15 @@ body.boxed-layout .site {
 ##   Inner Pages
 *   ----------------------------------------------------- */
 .page-header-wrapper {
-    padding: 50px 0;
-    background: var(--wpem-white-color);
-    border-top: 1px solid var(--wpem-gray-border-color);
+    padding: 30px 0;
+    background: var(--wpem-theme-content-color);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04);
+}
+.page-header-wrapper h1.entry-title{
+    margin: 0px;
+}
+.page-header-wrapper .entry-meta{
+    margin-top: 10px;
 }
 .header-title,
 h1.page-title {
@@ -1474,7 +1507,7 @@ article .entry-header,
 .blog-list article {
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: 1px solid var(--wpem-gray-border-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .blog-list article:last-child {
@@ -1496,7 +1529,7 @@ blockquote p:last-child {
 /*---------------------------------------------------
 *   Slider
 *   ----------------------------------------------------- */
-.event-slider-wrapper {
+/*.event-slider-wrapper {
     overflow: hidden;
 }
 
@@ -1577,7 +1610,7 @@ blockquote p:last-child {
 
 .event-slider-wrapper .slick-prev:hover:before, .event-slider-wrapper .slick-next:before:hover {
     background-color: rgba(255, 255, 255, 1);
-}
+}*/
 
 /*---------------------------------------------------
 ##   404 Error Page
@@ -1590,7 +1623,6 @@ blockquote p:last-child {
 .error-404 h1 {
     font-size: 180px;
     line-height: normal;
-    color: var(--wpem-dark-color);
 }
 .error-404 h2 {
     font-size: 40px;
@@ -1601,7 +1633,7 @@ blockquote p:last-child {
 ##   Footer
 *   ----------------------------------------------------- */
 .site-footer {
-    background: var(--wpem-white-color);
+    background: var(--wpem-theme-content-color);
 }
 .footer-top .container {
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
@@ -1622,10 +1654,10 @@ blockquote p:last-child {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    color: var(--wpem-white-color);
+    color: var(--wpem-theme-button-text-color);
     font-size: 20px;
     opacity: 0.7;
-    background: var(--wpem-dark-color);
+    background: var(--wpem-theme-secondary-color);
     padding: 8px 0;
     height: 44px;
     width: 44px;
@@ -1634,7 +1666,7 @@ blockquote p:last-child {
 }
 
 #goTop:hover {
-    background: var(--wpem-dark-color);
+    background: var(--wpem-theme-secondary-color);
     opacity: 1;
 }
 
@@ -1642,8 +1674,7 @@ blockquote p:last-child {
 ##   Widgets
 *   ----------------------------------------------------- */
 form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button {
-    background: var(--wpem-primary-color);
-    color: var(--wpem-white-color);
+    color: var(--wpem-theme-button-text-color);
     border: 0px;
     border-radius: 4px;
     cursor: pointer;
@@ -1657,17 +1688,10 @@ form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrappe
     border: 0;
     cursor: pointer;
 }
-form.wp-block-search .wp-block-search__input {
-    border: 1px solid var(--wpem-gray-border-color);
-    padding: 10px;
-}
-form.wp-block-search .wp-block-search__input:focus{
-    border-color: var(--wpem-primary-color);
-}
 #secondary .widget {
     padding: 20px;
     border-radius: 4px;
-    background-color: var(--wpem-white-color);
+    background-color: var(--wpem-theme-content-color);
 }
 
 .widget ul {
@@ -1753,10 +1777,10 @@ ol.wp-block-latest-comments{
     margin: 0;
 }
 .recent-post-list .recent-post-single {
-    background: var(--wpem-white-color);
+    background: var(--wpem-theme-content-color);
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid var(--wpem-gray-border-color);
+    border: 1px solid var(--wpem-theme-secondary-color);
     border-radius: 4px;
 }
 .recent-post-list .entry-title,
@@ -1819,7 +1843,7 @@ ol.wp-block-latest-comments{
     .bar1, .bar2, .bar3 {
         width: 28px;
         height: 3px;
-        background-color: var(--wpem-primary-color);
+        background-color: var(--wpem-theme-primary-color);
         margin: 6px 0;
         transition: 0.4s;
         display: block;
@@ -1867,6 +1891,12 @@ ol.wp-block-latest-comments{
     .main-navigation li a,
     .main-navigation ul ul a{
         width: 100%;
+    }
+    .main-navigation li a{
+        padding: 10px 0;
+    }
+    .main-navigation ul ul a{
+        padding: 10px 20px;
     }
 }
 
@@ -2028,7 +2058,7 @@ ol.wp-block-latest-comments{
         display: table;
     }
     #primary-menu li a {
-        padding: 0 15px;
+        padding: 15px;
     }
     #primary-menu li li a {
         padding: 5px 15px;

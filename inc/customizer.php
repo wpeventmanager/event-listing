@@ -67,6 +67,8 @@ if ( !function_exists('event_listing_default_theme_options_values') ) :
             'event_listing_button_color'     => '#0096ff',
             'event_listing_button_text_color'=>'#ffffff',
             'event_listing_link_color'     => '#0096ff',
+            'event_listing_link_hover_color'     => '#111111',
+            'event_listing_page_content_color'     => '#ffffff',
 
             /* footer */
             'event-listing-footer-copyright'=> esc_html__('Your Copyright Text', 'event-listing'),

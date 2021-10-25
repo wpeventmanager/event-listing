@@ -76,11 +76,14 @@ if (!function_exists('event_listing_dynamic_css')) :
         $event_listing_h6_font_weight = esc_attr($event_listing_theme_options['event-listing-font-h6-font-weight']);
 
         /* Color Options */
+        $event_listing_page_content_color = esc_attr($event_listing_theme_options['event_listing_page_content_color']);
         $event_listing_primary_color = esc_attr($event_listing_theme_options['event_listing_primary_color']);
         $event_listing_secondary_color = esc_attr($event_listing_theme_options['event_listing_secondary_color']);
         $event_listing_button_color = esc_attr($event_listing_theme_options['event_listing_button_color']);
-        $event_listing_button_text = esc_attr($event_listing_theme_options['event_listing_button_text_color']);
+        $event_listing_button_text_color = esc_attr($event_listing_theme_options['event_listing_button_text_color']);
         $event_listing_link_color = esc_attr($event_listing_theme_options['event_listing_link_color']);
+        $event_listing_link_hover_color = esc_attr($event_listing_theme_options['event_listing_link_hover_color']);
+
 
 
         $custom_css = '';
@@ -323,74 +326,51 @@ if (!function_exists('event_listing_dynamic_css')) :
             }";
         }
 
+        /* Color Options */
+        if (!empty($event_listing_page_content_color)) {
+            $custom_css .= "
+            :root{
+                --wpem-theme-content-color:" . $event_listing_page_content_color . ";
+            }";
+        }
         if (!empty($event_listing_primary_color)) {
             $custom_css .= "
-            .top-left,
-            .top-left a,
-            .entry-title a:hover,
-            .widget a,
-            .entry-meta,
-            .entry-meta a:hover,
-            a,
-            .main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a { 
-               color:" . $event_listing_primary_color . "; 
-            }";
-            $custom_css .= "
-             .widget_search, #secondary .widget.widget_search, blockquote{ 
-               border-color:" . $event_listing_primary_color . "; 
-            }";
-            $custom_css .= "
-             .widget.event-listing-cta-widget,
-             .event-listing-main-sidearea .widget.event-listing-cta-widget,
-             .header-search-inner{ 
-               background-color:" . $event_listing_primary_color . "; 
+            :root{
+                --wpem-theme-primary-color:" . $event_listing_primary_color . ";
             }";
         }
 
         if (!empty($event_listing_secondary_color)) {
             $custom_css .= "
-            body,
-            .top-left a:hover,            
-            .entry-title a,
-            .entry-title,
-            a:hover,
-            .widget a:hover,
-            .entry-meta a,
-            .main-navigation a{ 
-               color:" . $event_listing_secondary_color . "; 
+            :root{
+                --wpem-theme-secondary-color:" . $event_listing_secondary_color . ";
             }";
         }
 
         if (!empty($event_listing_button_color)) {
             $custom_css .= "
-            .btn,
-            .btn:visited,
-            .wp-block-button__link,
-            .wp-block-button__link:visited,
-            button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{ 
-                background-color:" . $event_listing_button_color . "; 
+            :root{
+                --wpem-theme-button-color:" . $event_listing_button_color . ";
             }";
         }
 
-        if (!empty($event_listing_button_text)) {
+        if (!empty($event_listing_button_text_color)) {
             $custom_css .= "
-            .event-listing-cta-button a,
-            .event-listing-cta-button a:hover,
-            .btn,
-            .btn:hover,
-            .btn:visited,
-            .btn:visited:hover,
-            .wp-block-button__link,
-            .wp-block-button__link:visited,
-            button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{ 
-                color:" . $event_listing_button_text . "; 
+            :root{
+                --wpem-theme-button-text-color:" . $event_listing_button_text_color . ";
             }";
         }
 
         if (!empty($event_listing_link_color)) {
             $custom_css .= "
-            .entry-content a{ 
-                color:" . $event_listing_link_color . "; 
+            :root{
+                --wpem-theme-link-color:" . $event_listing_link_color . ";
+            }";
+        }
+        if (!empty($event_listing_link_hover_color)) {
+            $custom_css .= "
+            :root{
+                --wpem-theme-link-hover-color:" . $event_listing_link_hover_color . ";
             }";
         }
 

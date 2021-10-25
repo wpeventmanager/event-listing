@@ -1,4 +1,24 @@
 <?php 
+        
+        $wp_customize->add_setting( 'event_listing_options[event_listing_page_content_color]',
+            array(
+                'default'           => $default['event_listing_page_content_color'],
+                'sanitize_callback' => 'sanitize_hex_color',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(                 
+                $wp_customize,
+                'event_listing_options[event_listing_page_content_color]',
+                array(
+                    'label'       => esc_html__( 'Content Color', 'event-listing' ),
+                    'description' => esc_html__( 'Content Color of the site.', 'event-listing' ),
+                    'section'     => 'colors',  
+                )
+            )
+        );
+
+    
         $wp_customize->add_setting( 'event_listing_options[event_listing_primary_color]',
             array(
                 'default'           => $default['event_listing_primary_color'],
@@ -94,3 +114,25 @@
             )
         );
 
+
+        $wp_customize->add_setting( 'event_listing_options[event_listing_link_hover_color]',
+            array(
+                'default'           => $default['event_listing_link_hover_color'],
+                'sanitize_callback' => 'sanitize_hex_color',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(                 
+                $wp_customize,
+                'event_listing_options[event_listing_link_hover_color]',
+                array(
+                    'label'       => esc_html__( 'Link hover Color', 'event-listing' ),
+                    'description' => esc_html__( 'Link hover Color of the site.', 'event-listing' ),
+                    'section'     => 'colors',  
+                )
+            )
+        );
+
+
+
+        
