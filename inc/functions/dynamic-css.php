@@ -83,6 +83,7 @@ if (!function_exists('event_listing_dynamic_css')) :
         $event_listing_button_text_color = esc_attr($event_listing_theme_options['event_listing_button_text_color']);
         $event_listing_link_color = esc_attr($event_listing_theme_options['event_listing_link_color']);
         $event_listing_link_hover_color = esc_attr($event_listing_theme_options['event_listing_link_hover_color']);
+        $wpem_primary_color = esc_attr($event_listing_theme_options['event_listing_wpem_primary_color']);
 
 
 
@@ -371,6 +372,12 @@ if (!function_exists('event_listing_dynamic_css')) :
             $custom_css .= "
             :root{
                 --wpem-theme-link-hover-color:" . $event_listing_link_hover_color . ";
+            }";
+        }
+        if (!empty($wpem_primary_color)) {
+            $custom_css .= "
+            :root{
+                --wpem-primary-color:" . $wpem_primary_color . ";
             }";
         }
 
