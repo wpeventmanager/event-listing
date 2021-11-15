@@ -83,7 +83,7 @@ if (!function_exists('event_listing_dynamic_css')) :
         $event_listing_button_text_color = esc_attr($event_listing_theme_options['event_listing_button_text_color']);
         $event_listing_link_color = esc_attr($event_listing_theme_options['event_listing_link_color']);
         $event_listing_link_hover_color = esc_attr($event_listing_theme_options['event_listing_link_hover_color']);
-        $wpem_primary_color = esc_attr($event_listing_theme_options['event_listing_wpem_primary_color']);
+        $wpem_primary_color = isset($event_listing_theme_options['event_listing_wpem_primary_color']) ? esc_attr($event_listing_theme_options['event_listing_wpem_primary_color']) : '';
 
 
 
