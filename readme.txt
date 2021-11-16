@@ -27,11 +27,13 @@ Event Listing is a fast, fully customizable & beautiful WordPress theme suitable
 Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
-= 1.12.1 - July 13 2020 =
-* File structure changed
 
-= 1.12.0 - June 25 2020 =
+= 1.12.0 - [ Nov 16th 2021 ] =
+
+* Imporoved desig
+* WPEM compatiblity improved
 * Removed dublicate files js 
+* File structure changed
 
 = 1.11.0 - June 21 2020 =
 * Twick fix in readme and style css.
