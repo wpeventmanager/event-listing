@@ -12,61 +12,63 @@ if ( !function_exists('event_listing_default_theme_options_values') ) :
         $default_theme_options = array(
 
             /*Paragraph Options*/
-            'event-listing-font-family-url'               => 'Muli:400,600',
+            'event-listing-font-family-url'               => 'Roboto:400,500,300,700,400italic',
             'event-listing-font-paragraph-font-size'      => 16,
             'event-listing-font-paragraph-line-height'    => 28,
             'event-listing-font-paragraph-letter-spacing' => 0,
             'event-listing-font-paragraph-font-weight'    => 400,
 
             /* H1 Options */
-            'event-listing-h1-font-family-url'     => 'Prata',
-            'event-listing-font-h1-font-size'      => 29,
+            'event-listing-h1-font-family-url'     => 'Roboto:400,500,300,700,400italic',
+            'event-listing-font-h1-font-size'      => 30,
             'event-listing-font-h1-line-height'    => 34,
             'event-listing-font-h1-letter-spacing' => 0,
-            'event-listing-font-h1-font-weight'    => 400,
+            'event-listing-font-h1-font-weight'    => 700,
 
             /* H2 Options */
-            'event-listing-h2-font-family-url'     =>'Prata',
+            'event-listing-h2-font-family-url'     =>'Roboto:400,500,300,700,400italic',
             'event-listing-font-h2-font-size'      => 24,
-            'event-listing-font-h2-line-height'    => 39,
+            'event-listing-font-h2-line-height'    => 36,
             'event-listing-font-h2-letter-spacing' => 0,
-            'event-listing-font-h2-font-weight'    => 400,
+            'event-listing-font-h2-font-weight'    => 600,
 
             /* H3 Options */
-            'event-listing-h3-font-family-url'     => 'Prata',
-            'event-listing-font-h3-font-size'      => 23,
-            'event-listing-font-h3-line-height'    => 27,
+            'event-listing-h3-font-family-url'     => 'Roboto:400,500,300,700,400italic',
+            'event-listing-font-h3-font-size'      => 20,
+            'event-listing-font-h3-line-height'    => 26,
             'event-listing-font-h3-letter-spacing' => 0,
-            'event-listing-font-h3-font-weight'    => 400,
+            'event-listing-font-h3-font-weight'    => 500,
 
             /* H4 Options */
-            'event-listing-h4-font-family-url'     => 'Prata',
-            'event-listing-font-h4-font-size'      => 20,
+            'event-listing-h4-font-family-url'     => 'Roboto:400,500,300,700,400italic',
+            'event-listing-font-h4-font-size'      => 18,
             'event-listing-font-h4-line-height'    => 24,
             'event-listing-font-h4-letter-spacing' => 0,
             'event-listing-font-h4-font-weight'    => 400,
 
             /* H5 Options */
-            'event-listing-h5-font-family-url'    => 'Prata',
-            'event-listing-font-h5-font-size'      => 17,
+            'event-listing-h5-font-family-url'    => 'Roboto:400,500,300,700,400italic',
+            'event-listing-font-h5-font-size'      => 16,
             'event-listing-font-h5-line-height'    => 20,
             'event-listing-font-h5-letter-spacing' => 0,
             'event-listing-font-h5-font-weight'    => 400,
 
             /* H6 Options */
-            'event-listing-h6-font-family-url'     => 'Prata',
-            'event-listing-font-h6-font-size'      => 15,
+            'event-listing-h6-font-family-url'     => 'Roboto:400,500,300,700,400italic',
+            'event-listing-font-h6-font-size'      => 14,
             'event-listing-font-h6-line-height'    => 18,
             'event-listing-font-h6-letter-spacing' => 0,
             'event-listing-font-h6-font-weight'    => 400,
 
 
             /* Colors */
-            'event_listing_primary_color'     => '#00a5fa',
-            'event_listing_secondary_color'     => '#404040',
-            'event_listing_button_color'     => '#00a5fa',
-            'event_listing_button_text_color'=>'#fff',
-            'event_listing_link_color'     => '#00a5fa',
+            'event_listing_primary_color'     => '#0096ff',
+            'event_listing_secondary_color'     => '#111111',
+            'event_listing_button_color'     => '#0096ff',
+            'event_listing_button_text_color'=>'#ffffff',
+            'event_listing_link_color'     => '#0096ff',
+            'event_listing_link_hover_color'     => '#111111',
+            'event_listing_page_content_color'     => '#ffffff',
 
             /* footer */
             'event-listing-footer-copyright'=> esc_html__('Your Copyright Text', 'event-listing'),

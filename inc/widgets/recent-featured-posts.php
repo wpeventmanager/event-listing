@@ -61,13 +61,13 @@ if (!class_exists('Event_Listing_Featured_Post')) :
             $query = new WP_Query($query_args);
             ?>
             <div class="conainer">
-                <div class="row recent-post-list">
+                <div class="recent-post-list">
                     <?php
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
                             ?>
-                            <div class="column recent-post-list-single">
+                            <div class="recent-post-list-single">
                                 <div class="recent-post-single">
                                     <?php
                                     if (has_post_thumbnail()) {

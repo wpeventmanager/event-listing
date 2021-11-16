@@ -77,12 +77,12 @@ $column_no = absint($event_listing_theme_options['event-listing-footer-row']);
     ?>
 
     <div class="footer-bottom">
-        <div class="container text-mb-center">
-            <div class="row">
+        <div class="container">
+            
                 <?php
                 if (has_nav_menu('social-menu') && $social == 1):
                     ?>
-                    <div class="column column-12 column-t-4 order-t-2 text-t-right">
+                    <div class="footer-social-menu">
                         <?php
                         wp_nav_menu(array(
                             'theme_location' => 'social-menu',
@@ -95,25 +95,25 @@ $column_no = absint($event_listing_theme_options['event-listing-footer-row']);
                 <?php
                 endif;
                 ?>
-                <div class="column column-12 column-t-8 order-t-1">
+               
                     <div class="copyright">
                         <?php echo $copyright; ?>
                     </div>
-                    <div class="site-info">
-                        <a href="<?php echo esc_url(__('https://wordpress.org/', 'event-listing')); ?>">
+                    <div class="site-info">Powered by
+                        <a href="<?php echo esc_url(__('https://wordpress.org/themes/event-listing/', 'event-listing')); ?>">
                             <?php
                             /* translators: %s: CMS name, i.e. WordPress. */
-                            printf(esc_html__('Proudly powered by %s', 'event-listing'), 'WordPress');
+                            printf(esc_html__('Event Listing WordPress Theme %s', 'event-listing'), '');
                             ?>
                         </a>
                         <span class="sep"> | </span>
                         <?php
                         /* translators: 1: Theme name, 2: Theme author. */
-                        printf(esc_html__('Theme: %1$s by %2$s.', 'event-listing'), 'Event Listing', '<a href="https://wp-eventmanager.com/">WP Event Manager</a>');
+                        printf(esc_html__('%1$s %2$s.', 'event-listing'), '', '<a href="https://wp-eventmanager.com/">WP Event Manager</a>');
                         ?>
                     </div><!-- .site-info -->
-                </div><!-- .column -->
-            </div><!-- .row -->
+               
+            
         </div><!-- .container -->
     </div> <!-- .footer-bottom -->
 
