@@ -13,7 +13,7 @@ get_header();
         <h1 class="page-title"><?php esc_html_e( '404', 'event-listing' ); ?></h1>
         <h2><?php esc_html_e( 'Page Not Found', 'event-listing' ); ?></h2>
         <p><?php esc_html_e( 'Opps! This does not seem to be the web page you are searching for.', 'event-listing' ); ?></p>
-        <a href="<?php echo esc_url(home_url()); ?>" title="Goto Home" class="btn">
+        <a href="<?php echo esc_url(home_url()); ?>" title="<?php esc_html_e( 'Go To Home', 'event-listing' ); ?>" class="btn">
             <?php _e('Homepage', 'event-listing'); ?>
         </a>
     </div> <!-- .container -->

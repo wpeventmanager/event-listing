@@ -4,13 +4,14 @@ Theme URI: https://wp-eventmanager.com/
 Author: WP Event Manager
 Author URI: https://wp-eventmanager.com/the-team/
 Description: Event Listing is a fast, fully customizable & beautiful WordPress theme suitable for any event, blog, portfolio, business website and WooCommerce storefront. A theme compatible with WP Event Manager plugin. Also, It offers special features and templates so it works perfectly with all page builders like Elementor, Visual Composer, Beaver Builder, SiteOrigin, Divi, etc. Some of the other features: # Responsive # RTL #Translation Ready #SEO Friendly # WooCommerce Ready # Extendible with WP Event Manager addons # Regularly updated # Designed, Developed, Maintained & Supported by WP Event Manager’s dedicated team. Looking for a perfect base theme for event listing? Look no further. You can use an event listing theme for building any kind of event website!
-Version: 1.12.0
+Version: 1.13.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: event-listing
 Domain Path: /languages
+Requires at least: 6.4
 Tested up to: 5.8.2
-Requires PHP: 5.2
+Requires PHP: 7.0
 Tags:  entertainment, portfolio, e-commerce, one-column, two-columns, full-width-template, left-sidebar, right-sidebar, editor-style, custom-header, custom-background, custom-logo, custom-menu, custom-colors, rtl-language-support, featured-images, threaded-comments, translation-ready, sticky-post, microformats,theme-options
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -35,6 +36,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Alignments
 # Clearings
 # Widgets
+# Woocommerce
 # Content
     ## Posts and pages
     ## Comments
@@ -42,6 +44,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
     ## Captions
     ## Galleries
+
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -219,37 +222,7 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-.btn {
-    padding: 7px 20px;
-    display: inline-block;
-    border-radius: 4px;
-    border: 0;
-    cursor: pointer;
-}
-
-.btn,
-.wp-block-button__link,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button{ 
-    background-color: var(--wpem-theme-button-color); 
-    color: var(--wpem-theme-button-text-color);
-}
-
-.btn:hover,
-.wp-block-button__link:hover,
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover{ 
-    background-color: var(--wpem-theme-secondary-color); 
-    color: var(--wpem-theme-button-text-color);
-}
-
-a,
+ a,
 .widget a,
 .entry-meta i,
 .entry-content a{ 
@@ -265,6 +238,44 @@ a:hover,
 .entry-title a{
     color: var(--wpem-theme-secondary-color);
 }
+
+.btn,
+.wp-element-button {
+    padding: 7px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn,
+a.btn,
+.wp-block-button__link,
+a.wp-block-button__link,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button{ 
+    background-color: var(--wpem-theme-button-color); 
+    color: var(--wpem-theme-button-text-color);
+    border-radius: 4px;
+}
+
+.btn:hover,
+a.btn:hover,
+.wp-block-button__link:hover,
+a.wp-block-button__link:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover{ 
+    background-color: var(--wpem-theme-secondary-color); 
+    color: var(--wpem-theme-button-text-color);
+}
+
+
 
 select{
     background-image: url(assets/images/arrow-down.svg);
@@ -833,6 +844,50 @@ a:focus, a:hover, a:active {
 .widget select {
     max-width: 100%;
 }
+
+
+
+/*--------------------------------------------------------------
+# Woocommerce
+--------------------------------------------------------------*/
+.woocommerce-page .wc-block-components-button {
+    background-color: var(--wpem-theme-button-color);
+    color: var(--wpem-theme-button-text-color);
+    border-radius: 4px;
+}
+.woocommerce-page .wc-block-components-button:hover {
+    background-color: var(--wpem-theme-link-hover-color);
+    color: var(--wpem-theme-button-text-color);
+}
+.wc-block-components-totals-coupon .components-button {
+    border: 0;
+    color: var(--wpem-theme-button-text-color);
+    border-radius: 4px;
+}
+
+.woocommerce-notice {
+    padding: .8rem;
+    background-color: #eee;
+    border-radius: 4px;
+}
+.woocommerce-notice.woocommerce-notice--success {
+    background-color: rgb(0 128 0 / 10%);
+    color: green;
+}
+.woocommerce-notice.woocommerce-notice--error {
+    background-color: rgb(255 0 0 / 10%);
+    color: red;
+}
+.woocommerce ul.order_details {
+    padding: 0;
+}
+.woocommerce ul.order_details li {
+    margin-top: .8rem;
+}
+
+
+
+
 
 /*--------------------------------------------------------------
 # Content
@@ -1526,91 +1581,6 @@ blockquote p:last-child {
     margin-bottom: 0;
 }
 
-/*---------------------------------------------------
-*   Slider
-*   ----------------------------------------------------- */
-/*.event-slider-wrapper {
-    overflow: hidden;
-}
-
-.event-slider-single {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    background-size: cover;
-}
-
-.event-slider-single:before {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.event-slider-content h2,
-.event-slider-content p,
-.event-slider-content h2 a:visited,
-.event-slider-content h2 a {
-    color: var(--wpem-white-color);
-}
-
-.event-slider-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px;
-    width: 80%;
-    max-width: 600px;
-    z-index: 3;
-}
-
-.event-slider-content h2 {
-    font-size: 50px;
-    line-height: 1.2;
-}
-
-.event-slider-wrapper .slick-prev,
-.event-slider-wrapper .slick-next {
-    z-index: 9999;
-}
-
-.event-slider-wrapper .slick-prev {
-    left: 0;
-}
-
-.event-slider-wrapper .slick-prev:before, .event-slider-wrapper .slick-next:before {
-    font-family: 'FontAwesome';
-    font-size: 30px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 100%;
-    color: #2e3192;
-    line-height: 40px;
-    width: 40px;
-    text-align: center;
-    display: inline-block;
-}
-
-.event-slider-wrapper .slick-prev:before {
-    content: "\f104";
-}
-
-.event-slider-wrapper .slick-next {
-    right: 20px;
-}
-
-.event-slider-wrapper .slick-next:before {
-    content: "\f105";
-}
-
-.event-slider-wrapper .slick-prev:hover:before, .event-slider-wrapper .slick-next:before:hover {
-    background-color: rgba(255, 255, 255, 1);
-}*/
 
 /*---------------------------------------------------
 ##   404 Error Page
@@ -1936,6 +1906,15 @@ ol.wp-block-latest-comments{
     .error-404 h2{
         font-size: 20px;
     }
+    .woocommerce ul.order_details li {
+        float: inherit;
+        border-right: 0;
+        border-bottom: 1px dashed #cfc8d8;
+        padding-bottom: 1em;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    
 
 }
 

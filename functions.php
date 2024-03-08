@@ -316,3 +316,29 @@ require get_template_directory() . '/inc/functions/microdata.php';
  */
 require get_template_directory() . '/inc/widgets/recent-featured-posts.php';
 require get_template_directory() . '/inc/widgets/call-to-action.php';
+
+
+/** compatibility with elementor
+ * Add Body Classes
+ * 
+ * @param array $classes Body Class Array.
+ * @return array $classes 
+ * @since 1.0.0
+ */
+add_filter( 'body_class', 'body_classes' );
+function body_classes( $classes ) {
+	$class_list = array();
+	$GLOBALS['event_listing_options'] = event_listing_get_options_value();
+	// enqueue theme style
+	wp_enqueue_style('event-listing-style', get_template_directory_uri() . '/style.css', array());
+	wp_style_add_data( 'event-listing-style', 'rtl', 'replace' );
+
+	if(!empty($classes) && is_array($classes)){
+		foreach($classes as $class){
+			$class_list[] = $class;
+		}
+	} else {
+		$class_list[] = 'event-listing';
+	}
+	return apply_filters('event_listing_classes', $classes);
+}
