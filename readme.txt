@@ -2,9 +2,9 @@
 
 Contributors: wpeventmanager
 Tags: entertainment, portfolio, e-commerce, one-column, two-columns, full-width-template, left-sidebar, right-sidebar, editor-style, custom-header, custom-background, custom-logo, custom-menu, custom-colors, rtl-language-support, featured-images, threaded-comments, translation-ready, sticky-post, microformats,theme-options
-Requires PHP: 4.7
-Requires at least: 4.6
-Tested up to: 5.4
+Requires at least: 6.4
+Tested up to: 5.8.2
+Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,14 @@ Event Listing is a fast, fully customizable & beautiful WordPress theme suitable
 Event Listing includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.13.0 - [ Mar 13th 2024 ] =
+
+Fixed : Warning message on the theme submission.
+Fixed : Need to set CSS for show text on button.
+Fixed : In the mobile view checkout page message is not displayed properly.
+Fixed : Compatibility with recent versions of WordPress.
+Fixed : Compatibility with elementor addon.
 
 = 1.12.0 - [ Nov 16th 2021 ] =
 
